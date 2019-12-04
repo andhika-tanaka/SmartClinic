@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../static/images/cross.ico" th:href="@{/images/cross.ico}" type="image/ico"/>
+
+    <title>Smart Clinic | List User </title>
+
+    <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+    <div th:replace="fragments/header :: header-css"></div>
+
+    <!-- Datatables -->
+    <link href="../../static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css}">
+
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <div th:replace="fragments/navbar :: navbar"></div>
+
+        <!-- top navigation -->
+        <div th:replace="fragments/topnav :: topnav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>List Users</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 ">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Table Users<small>All users data</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card-box table-responsive">
+                                            <table id="datatable-responsive"
+                                                   class="table table-striped table-bordered dt-responsive nowrap"
+                                                   cellspacing="0" width="100%">
+                                                <thead>
+                                                <th>Name</th>
+                                                <th>ID Number</th>
+                                                <th>Date of Birth</th>
+                                                <th>Gender</th>
+                                                <th>Email</th>
+                                                <th>Telephone Number</th>
+                                                <th>Actions</th>
+                                                <th>Address</th>
+                                                <th>Position</th>
+                                                </thead>
+
+                                                <tbody>
+                                                <tr scope="row" th:each="u : ${users}">
+                                                    <td th:text="${#strings.capitalize(u.firstName)} + ' ' + ${#strings.capitalize(u.lastName)}">
+                                                        Name
+                                                    </td>
+                                                    <td th:text="${u.idNumber}">Nomor ID</td>
+                                                    <td th:text="${u.dob}">DOB</td>
+                                                    <td th:text="${#strings.capitalize(u.gender)}">Gender</td>
+                                                    <td th:text="${u.email}">Email</td>
+                                                    <td th:utext="${u.phone1} + ' <br /> ' + ${u.phone2}">Telp</td>
+                                                    <td>
+
+                                                        <!--Edit Button-->
+                                                        <a class="btn btn-primary"
+                                                           th:href="@{/users/edit/{id}(id=${u.id})}">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+
+                                                        <!--Delete Button-->
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                                data-target="#deleteModal"
+                                                                th:attr="data-target='#deleteModal'+${u.id}"><i
+                                                                class="fa fa-trash"></i>
+                                                        </button>
+
+                                                        <!-- Delete Modal -->
+                                                        <div class="modal modal-warning fade in"
+                                                             th:id="deleteModal+${u.id}">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+
+                                                                    <!--Modal Header-->
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title w-100">Hapus Posisi</h4>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal">&times;
+                                                                        </button>
+                                                                    </div>
+
+                                                                    <!--Modal Body-->
+                                                                    <div class="modal-body">
+                                                                        <h3>Are you sure want to delete this user?</h3>
+                                                                    </div>
+
+                                                                    <!--Modal Footer-->
+                                                                    <div class="modal-footer">
+                                                                        <a type="button" class="btn btn-primary"
+                                                                           th:href="@{/users/delete/{id}(id=${u.id})}"><i
+                                                                                class="fa fa-check"></i>&nbsp;Yes</a>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger pull-left"
+                                                                                data-dismiss="modal">
+                                                                            <i
+                                                                                    class="fa fa-times"></i>&nbsp;Close
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td th:text="${#strings.capitalize(u.address)} + ', ' + ${u.postalCode} + ', ' + ${#strings.capitalize(u.city)} + ', ' + ${#strings.capitalize(u.province)} ">
+                                                        Alamat
+                                                    </td>
+                                                    <td>
+                                                        <span th:each="p,iterStat : ${u.roles}">
+                                                        <span th:text="${p.title} + ' - ' + ${p.name}"/><th:block th:if="${!iterStat.last}">, </th:block>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <div th:replace="fragments/footer :: footer"></div>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer-script"></div>
+
+<!-- Datatables -->
+<script src="../../static/vendors/datatables.net/js/jquery.dataTables.min.js"
+        th:src="@{/vendors/datatables.net/js/jquery.dataTables.min.js}"></script>
+<script src="../../static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"
+        th:src="@{/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js}"></script>
+<script src="../../static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"
+        th:src="@{/vendors/datatables.net-responsive/js/dataTables.responsive.min.js}"></script>
+<script src="../../static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"
+        th:src="@{/static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js}"></script>
+<script src="../../static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"
+        th:src="@{/vendors/datatables.net-scroller/js/dataTables.scroller.min.js}"></script>
+</body>
+
+</html>

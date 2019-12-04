@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../static/images/cross.ico" th:href="@{/images/cross.ico}" type="image/ico"/>
+
+    <title>Smart Clinic | Add Clinic </title>
+
+    <div th:replace="fragments/header :: header-css"></div>
+
+    <!-- bootstrap-wysiwyg -->
+    <link href="../../static/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet"
+          th:href="@{/vendors/google-code-prettify/bin/prettify.min.css}">
+    <!-- Select2 -->
+    <link href="../../static/vendors/select2/dist/css/select2.min.css" rel="stylesheet"
+          th:href="@{/vendors/select2/dist/css/select2.min.css}">
+    <!-- Switchery -->
+    <link href="../../static/vendors/switchery/dist/switchery.min.css" rel="stylesheet"
+          th:href="@{/vendors/switchery/dist/switchery.min.css}">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../../static/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"
+          th:href="@{/vendors/bootstrap-daterangepicker/daterangepicker.css}">
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- navigation bar -->
+        <div th:replace="fragments/navbar :: navbar"></div>
+        <!-- /navigation bar -->
+
+        <!-- top navigation -->
+        <div th:replace="fragments/topnav :: topnav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Form Clinic</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4" th:fragment="add-clinic">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Form Clinic <small>Adding New Clinic</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <form class="form-horizontal form-label-left" th:action="@{/clinics/add}"
+                                      th:object="${clinic}" method="post" data-parsley-validate>
+
+                                    <span class="section">Clinic Info</span>
+
+                                    <!-- Number -->
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="number">
+                                            Number
+                                        </label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <input id="number" class="form-control" type="text" required="required"
+                                                   data-parsley-trigger="change" th:field="*{number}">
+                                        </div>
+                                    </div>
+
+                                    <!-- Name -->
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">
+                                            Name
+                                        </label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <input id="name" class="form-control" type="text" required="required"
+                                                   data-parsley-trigger="change"
+                                                   data-parsley-minlength="8" data-parsley-maxlength="20"
+                                                   data-parsley-minlength-message="You need to enter at least 8 digits of your telephone number"
+                                                   th:field="*{name}">
+                                        </div>
+                                    </div>
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-8 offset-md-2">
+                                            <a class="btn btn-primary" th:href="@{/clinics}">Cancel</a>
+                                            <button id="send" type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <div th:replace="fragments/footer :: footer"></div>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- script -->
+<div th:replace="fragments/footer :: footer-script"></div>
+
+<!-- bootstrap-wysiwyg -->
+<script src="../../static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"
+        th:src="@{/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js}"></script>
+<script src="../../static/vendors/jquery.hotkeys/jquery.hotkeys.js"
+        th:src="@{/vendors/jquery.hotkeys/jquery.hotkeys.js}"></script>
+<script src="../../static/vendors/google-code-prettify/src/prettify.js"
+        th:src="@{/vendors/google-code-prettify/src/prettify.js}"></script>
+<!-- jQuery Tags Input -->
+<script src="../../static/vendors/jquery.tagsinput/src/jquery.tagsinput.js"
+        th:src="@{/vendors/jquery.tagsinput/src/jquery.tagsinput.js}"></script>
+<!-- Switchery -->
+<script src="../../static/vendors/switchery/dist/switchery.min.js"
+        th:src="@{/vendors/switchery/dist/switchery.min.js}"></script>
+<!-- Select2 -->
+<script src="../../static/vendors/select2/dist/js/select2.full.min.js"
+        th:src="@{/vendors/select2/dist/js/select2.full.min.js}"></script>
+<!-- Parsley -->
+<script src="../../static/vendors/parsleyjs/dist/parsley.min.js"
+        th:src="@{/vendors/parsleyjs/dist/parsley.min.js}"></script>
+<!-- Autosize -->
+<script src="../../static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"
+        th:src="@{/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js}"></script>
+<!-- jQuery autocomplete -->
+<script src="../../static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"
+        th:src="@{/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="../../static/vendors/moment/min/moment.min.js" th:src="@{/vendors/moment/min/moment.min.js}"></script>
+<script src="../static/vendors/bootstrap-daterangepicker/daterangepicker.js"
+        th:src="@{/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+
+
+</body>
+
+</html>

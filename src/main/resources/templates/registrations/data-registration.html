@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../static/images/cross.ico" th:href="@{/images/cross.ico}" type="image/ico"/>
+
+    <title>Smart Clinic | Data Registration </title>
+
+    <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+    <div th:replace="fragments/header :: header-css"></div>
+
+    <!-- Datatables -->
+    <link href="../../static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css}">
+    <link href="../../static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet"
+          th:href="@{/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css}">
+
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <div th:replace="fragments/navbar :: navbar"></div>
+
+        <!-- top navigation -->
+        <div th:replace="fragments/topnav :: topnav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Data Registration</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-3"></div>
+                    <div class="col-md-6 col-sm-6 ">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Data Registration<small>New registration</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <!-- Card Header -->
+                                        <div class="card-title">
+                                            <h4 class="modal-title w-100 text-center">Detail Pendaftaran</h4>
+                                        </div>
+
+                                        <!-- Card body -->
+                                        <div class="card-text" th:each="r : ${registration}">
+                                            <h3>Selamat Anda Mendapatkan Nomor Urut</h3>
+                                            <h1 th:text="${r.number}"></h1>
+                                            <h3>Tanggal Kunjungan</h3>
+                                            <h3 th:text="${r.checkupDate}"></h3>
+                                            <h4 th:text="'Pasien : ' + ${r.patients.firstName} +' '+${r.patients.lastName}"></h4>
+                                            <h4 th:text="'Dokter : ' + ${r.doctors.firstName} +' '+${r.doctors.lastName}"></h4>
+                                            <a class="btn btn-primary" th:href="@{/registrations/}">Kembali</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <div th:replace="fragments/footer :: footer"></div>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer-script"></div>
+
+<!-- Datatables -->
+<script src="../../static/vendors/datatables.net/js/jquery.dataTables.min.js"
+        th:src="@{/vendors/datatables.net/js/jquery.dataTables.min.js}"></script>
+<script src="../../static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"
+        th:src="@{/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js}"></script>
+<script src="../../static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"
+        th:src="@{/vendors/datatables.net-responsive/js/dataTables.responsive.min.js}"></script>
+<script src="../../static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"
+        th:src="@{/static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js}"></script>
+<script src="../../static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"
+        th:src="@{/vendors/datatables.net-scroller/js/dataTables.scroller.min.js}"></script>
+</body>
+
+</html>
