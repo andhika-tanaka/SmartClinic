@@ -38,7 +38,7 @@ Ion.RangeSlider. Is an easy, flexible and responsive range slider with tons of o
 * Any slider value can be set through input data-attribute (eg. data-min="10")
 * Slider supports disable param. You can set it true to make slider inactive
 * Slider supports external methods (update, reset and remove) to control it after creation
-* For advanced users slider has callbacks (onStart, onChange, onFinish, onUpdate). Slider pastes all its params to callback first argument as object
+* For advanced clinicUsers slider has callbacks (onStart, onChange, onFinish, onUpdate). Slider pastes all its params to callback first argument as object
 * Slider supports date and time
 
 

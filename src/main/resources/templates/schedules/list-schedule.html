@@ -83,7 +83,7 @@
 
                                                 <tbody>
                                                 <tr scope="row" th:each="s : ${schedules}">
-                                                    <td th:text="${s.users.firstName} + ' ' + ${s.users.lastName}">Staff Name</td>
+                                                    <td th:text="${s.clinicUsers.firstName} + ' ' + ${s.clinicUsers.lastName}">Staff Name</td>
                                                     <td th:text="${s.days}">Days</td>
                                                     <td th:text="${s.startHour}">Start Hour</td>
                                                     <td th:text="${s.finishHour}">Finish Hour</td>
@@ -114,7 +114,7 @@
 
                                                                     <!--Modal Body-->
                                                                     <div class="modal-body">
-                                                                        <h3>Are you sure want to delete this user?</h3>
+                                                                        <h3>Are you sure want to delete this clinicUser?</h3>
                                                                     </div>
 
                                                                     <!--Modal Footer-->

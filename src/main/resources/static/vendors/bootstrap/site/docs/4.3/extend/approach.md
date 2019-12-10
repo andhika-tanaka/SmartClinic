@@ -46,13 +46,13 @@ There are two `z-index` scales in Bootstrap—elements within a component and ov
 - Some components in Bootstrap are built with overlapping elements to prevent double borders without modifying the `border` property. For example, button groups, input groups, and pagination.
 - These components share a standard `z-index` scale of `0` through `3`.
 - `0` is default (initial), `1` is `:hover`, `2` is `:active`/`.active`, and `3` is `:focus`.
-- This approach matches our expectations of highest user priority. If an element is focused, it's in view and at the user's attention. Active elements are second highest because they indicate state. Hover is third highest because it indicates user intent, but nearly _anything_ can be hovered.
+- This approach matches our expectations of highest clinicUser priority. If an element is focused, it's in view and at the clinicUser's attention. Active elements are second highest because they indicate state. Hover is third highest because it indicates clinicUser intent, but nearly _anything_ can be hovered.
 
 ### Overlay components
 
 Bootstrap includes several components that function as an overlay of some kind. This includes, in order of highest `z-index`, dropdowns, fixed and sticky navbars, modals, tooltips, and popovers. These components have their own `z-index` scale that begins at `1000`. This starting number is random and serves as a small buffer between our styles and your project's custom styles.
 
-Each overlay component increases it's `z-index` value slightly in such a way that common UI principles allow user focused or hovered elements to remain in view at all times. For example, a modal is document blocking (e.g., you cannot take any other action save for the modal's action), so we put that above our navbars.
+Each overlay component increases it's `z-index` value slightly in such a way that common UI principles allow clinicUser focused or hovered elements to remain in view at all times. For example, a modal is document blocking (e.g., you cannot take any other action save for the modal's action), so we put that above our navbars.
 
 Learn more about this in our [`z-index` layout page]({{ site.baseurl }}/docs/{{ site.docs_version }}/layout/overview/#z-index).
 

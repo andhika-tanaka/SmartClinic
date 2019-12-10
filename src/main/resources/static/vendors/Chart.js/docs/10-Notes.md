@@ -29,7 +29,7 @@ New contributions to the library are welcome, just a couple of guidelines:
 - Please ensure you're changing the individual files in `/src`, not the concatenated output in the `Chart.js` file in the root of the repo.
 - Please check that your code will pass `jshint` code standards, `gulp jshint` will run this for you.
 - Please keep pull requests concise, and document new functionality in the relevant `.md` file.
-- Consider whether your changes are useful for all users, or if creating a Chart.js extension would be more appropriate.
+- Consider whether your changes are useful for all clinicUsers, or if creating a Chart.js extension would be more appropriate.
 
 ### License
 Chart.js is open source and available under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>.

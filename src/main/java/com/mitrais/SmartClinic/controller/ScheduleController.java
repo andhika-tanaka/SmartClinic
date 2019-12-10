@@ -1,12 +1,11 @@
 package com.mitrais.SmartClinic.controller;
 
 import com.mitrais.SmartClinic.model.Clinic;
+import com.mitrais.SmartClinic.model.ClinicUser;
 import com.mitrais.SmartClinic.model.Schedule;
-import com.mitrais.SmartClinic.model.User;
 import com.mitrais.SmartClinic.repository.ClinicRepository;
 import com.mitrais.SmartClinic.repository.ScheduleRepository;
 import com.mitrais.SmartClinic.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -43,10 +42,10 @@ public class ScheduleController {
     @GetMapping("/add")
     public String showUserForm(Model model)
     {
-        List<User> users = userRepository.findStaffs();
+        List<ClinicUser> clinicUsers = userRepository.findStaffs();
         List<Clinic> clinics = clinicRepository.findAll();
         Schedule schedule = new Schedule();
-        model.addAttribute("users", users);
+        model.addAttribute("users", clinicUsers);
         model.addAttribute("clinics", clinics);
         model.addAttribute("schedule",schedule);
         return "schedules/add-schedule";
@@ -65,10 +64,10 @@ public class ScheduleController {
     public String showEditUserForm(@PathVariable("id") Long id, Model model){
         Schedule schedule = scheduleRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        List<User> users = userRepository.findStaffs();
+        List<ClinicUser> clinicUsers = userRepository.findStaffs();
         List<Clinic> clinics = clinicRepository.findAll();
         model.addAttribute("schedule", schedule);
-        model.addAttribute("users", users);
+        model.addAttribute("users", clinicUsers);
         model.addAttribute("clinics", clinics);
         return "schedules/edit-schedule";
     }

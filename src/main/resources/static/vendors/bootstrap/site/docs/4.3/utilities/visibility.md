@@ -5,7 +5,7 @@ description: Control the visibility, without modifying the display, of elements 
 group: utilities
 ---
 
-Set the `visibility` of elements with our visibility utilities. These utility classes do not modify the `display` value at all and do not affect layout – `.invisible` elements still take up space in the page. Content will be hidden both visually and for assistive technology/screen reader users.
+Set the `visibility` of elements with our visibility utilities. These utility classes do not modify the `display` value at all and do not affect layout – `.invisible` elements still take up space in the page. Content will be hidden both visually and for assistive technology/screen reader clinicUsers.
 
 Apply `.visible` or `.invisible` as needed.
 

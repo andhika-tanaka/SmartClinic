@@ -1,10 +1,9 @@
 package com.mitrais.SmartClinic.controller;
 
+import com.mitrais.SmartClinic.model.ClinicUser;
 import com.mitrais.SmartClinic.model.Role;
-import com.mitrais.SmartClinic.model.User;
 import com.mitrais.SmartClinic.repository.RoleRepository;
 import com.mitrais.SmartClinic.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,15 +26,15 @@ public class UserController {
 
     @GetMapping
     public String index(Model model) {
-        List<User> users = userRepository.findStaffs();
-        model.addAttribute("users", users);
+        List<ClinicUser> clinicUsers = userRepository.findStaffs();
+        model.addAttribute("users", clinicUsers);
         return "users/list-user";
     }
 
     @GetMapping("/add")
     public String showUserForm(Model model) {
-        User user = new User();
-        model.addAttribute(user);
+        ClinicUser clinicUser = new ClinicUser();
+        model.addAttribute(clinicUser);
 
         List<Role> roles = roleRepository.findStaffs();
         model.addAttribute("roles", roles);
@@ -43,19 +42,19 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public String saveUser(User user, BindingResult bindingResult) {
+    public String saveUser(ClinicUser clinicUser, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "users/add-user";
         }
-        userRepository.save(user);
+        userRepository.save(clinicUser);
         return "redirect:/users";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditUserForm(@PathVariable("id") Long id, Model model) {
-        User user = userRepository.findById(id).
+        ClinicUser clinicUser = userRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        model.addAttribute("user", user);
+        model.addAttribute("user", clinicUser);
 
         List<Role> roles = roleRepository.findStaffs();
         model.addAttribute("roles", roles);
@@ -63,20 +62,20 @@ public class UserController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editUser(@PathVariable("id") Long id, User user, BindingResult bindingResult) {
+    public String editUser(@PathVariable("id") Long id, ClinicUser clinicUser, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            user.setId(id);
+            clinicUser.setId(id);
             return "users/edit-user";
         }
-        userRepository.save(user);
+        userRepository.save(clinicUser);
         return "redirect:/users";
     }
 
     @GetMapping("/detail/{id}")
     public String showDetailForm(@PathVariable("id") Long id, Model model) {
-        User user = userRepository.findById(id).
+        ClinicUser clinicUser = userRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        model.addAttribute("user", user);
+        model.addAttribute("user", clinicUser);
         return "users/detail-user";
     }
 

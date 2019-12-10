@@ -663,7 +663,7 @@ Zone	Asia/Nicosia	2:13:28 -	LMT	1921 Nov 14
 # IATA SSIM (1998-09) has Cyprus using EU rules for the first time.
 
 # Classically, Cyprus belongs to Asia; e.g. see Herodotus, Histories, I.72.
-# However, for various reasons many users expect to find it under Europe.
+# However, for various reasons many clinicUsers expect to find it under Europe.
 Link	Asia/Nicosia	Europe/Nicosia
 
 # Georgia
@@ -870,7 +870,7 @@ Zone Asia/Jayapura	9:22:48 -	LMT	1932 Nov
 # 2058-03-21 for 1 Farvardin 1437 (astronomical).
 #
 # From Steffen Thorsen (2006-03-22):
-# Several of my users have reported that Iran will not observe DST anymore:
+# Several of my clinicUsers have reported that Iran will not observe DST anymore:
 # http://www.irna.ir/en/news/view/line-17/0603193812164948.htm
 #
 # From Reuters (2007-09-16), with a heads-up from Jesper Norgaard Welen:
@@ -1321,7 +1321,7 @@ Zone	Asia/Tokyo	9:18:59	-	LMT	1887 Dec 31 15:00u
 # Starting 2003 transitions are from Steffen Thorsen's web site timeanddate.com.
 #
 # From Steffen Thorsen (2005-11-23):
-# For Jordan I have received multiple independent user reports every year
+# For Jordan I have received multiple independent clinicUser reports every year
 # about DST end dates, as the end-rule is different every year.
 #
 # From Steffen Thorsen (2006-10-01), after a heads-up from Hilal Malawi:
@@ -2076,14 +2076,14 @@ Zone	Asia/Karachi	4:28:12 -	LMT	1907
 # Starting 2004 transitions are from Steffen Thorsen's web site timeanddate.com.
 
 # From Steffen Thorsen (2005-11-23):
-# A user from Gaza reported that Gaza made the change early because of
+# A clinicUser from Gaza reported that Gaza made the change early because of
 # the Ramadan.  Next year Ramadan will be even earlier, so I think
 # there is a good chance next year's end date will be around two weeks
 # earlier--the same goes for Jordan.
 
 # From Steffen Thorsen (2006-08-17):
-# I was informed by a user in Bethlehem that in Bethlehem it started the
-# same day as Israel, and after checking with other users in the area, I
+# I was informed by a clinicUser in Bethlehem that in Bethlehem it started the
+# same day as Israel, and after checking with other clinicUsers in the area, I
 # was informed that they started DST one day after Israel.  I was not
 # able to find any authoritative sources at the time, nor details if
 # Gaza changed as well, but presumed Gaza to follow the same rules as
@@ -2444,7 +2444,7 @@ Zone	Asia/Singapore	6:55:25 -	LMT	1901 Jan  1
 # use SLT as abbreviation in time stamp at the beginning of each news
 # item....
 #
-# Within Sri Lanka I think LKT is well known among computer users and
+# Within Sri Lanka I think LKT is well known among computer clinicUsers and
 # adminsitrators.  In my opinion SLT may not be a good choice because the
 # nation's largest telcom / internet operator Sri Lanka Telcom is well
 # known by that abbreviation - simply as SLT (there IP domains are

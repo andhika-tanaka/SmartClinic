@@ -66,8 +66,8 @@
                             </div>
                             <div class="x_content">
 
-                                <form class="form-horizontal form-label-left" th:action="@{/users/edit/{id}(id=${user.id})}"
-                                      th:object="${user}" method="post" data-parsley-validate>
+                                <form class="form-horizontal form-label-left" th:action="@{/clinicUsers/edit/{id}(id=${clinicUser.id})}"
+                                      th:object="${clinicUser}" method="post" data-parsley-validate>
 
                                     <span class="section">Personal Info</span>
 
@@ -233,7 +233,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 offset-md-3">
-                                            <a class="btn btn-primary" th:href="@{/users}">Cancel</a>
+                                            <a class="btn btn-primary" th:href="@{/clinicUsers}">Cancel</a>
                                             <button id="send" type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>

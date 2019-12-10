@@ -60,7 +60,7 @@ into the project.
 Contributing changes to Select2
 -------------------------------
 Select2 is made up of multiple submodules that all come together to make the
-standard and extended builds that are available to users. The build system uses
+standard and extended builds that are available to clinicUsers. The build system uses
 Node.js to manage and compile the submodules, all of which is done using the
 Grunt build system.
 

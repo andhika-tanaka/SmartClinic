@@ -9,10 +9,10 @@ Bootstrap is maintained by the founding team and a small group of invaluable cor
 
 <div class="list-group mb-3">
   {% for member in site.data.core-team %}
-    <a class="list-group-item list-group-item-action d-flex align-items-center" href="https://github.com/{{ member.user }}">
-      <img src="https://github.com/{{ member.user }}.png" alt="@{{ member.user }}" width="32" height="32" class="rounded mr-2">
+    <a class="list-group-item list-group-item-action d-flex align-items-center" href="https://github.com/{{ member.clinicUser }}">
+      <img src="https://github.com/{{ member.clinicUser }}.png" alt="@{{ member.clinicUser }}" width="32" height="32" class="rounded mr-2">
       <span>
-        <strong>{{ member.name }}</strong> @{{ member.user }}
+        <strong>{{ member.name }}</strong> @{{ member.clinicUser }}
       </span>
     </a>
   {% endfor %}

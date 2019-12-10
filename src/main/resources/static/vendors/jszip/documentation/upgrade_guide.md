@@ -28,7 +28,7 @@ zip.file("test.txt").dir
 * The packaging changed : instead of loading jszip.js, jszip-load.js,
   jszip-inflate.js, jszip-deflate.js, just include dist/jszip.js or
   dist/jszip.min.js.
-  For AMD loader users : JSZip now registers itself. You just have to put the
+  For AMD loader clinicUsers : JSZip now registers itself. You just have to put the
   file at the right place or configure your loader.
 
 
