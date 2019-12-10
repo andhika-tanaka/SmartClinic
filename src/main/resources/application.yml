@@ -5,6 +5,9 @@ spring:
       dynamic-insert: true
       dynamic-update: true
   datasource:
-    url: jdbc:mysql://localhost:3306/hospitaldb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT
-    username: root
-    password:
+    url: ${JDBC_DATABASE_URL:}
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+server:
+  port: ${PORT:5000}

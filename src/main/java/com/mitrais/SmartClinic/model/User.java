@@ -18,6 +18,8 @@ public class User {
 
     private String email;
 
+    private String password;
+
     private String dob;
 
     private String idNumber;
@@ -35,6 +37,8 @@ public class User {
     private  String phone1;
 
     private String phone2;
+
+    private Integer active;
 
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
