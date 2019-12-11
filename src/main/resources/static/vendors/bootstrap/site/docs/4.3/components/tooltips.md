@@ -105,11 +105,11 @@ $('#example').tooltip({ boundary: 'window' })
 The required markup for a tooltip is only a `data` attribute and `title` on the HTML element you wish to have a tooltip. The generated markup of a tooltip is rather simple, though it does require a position (by default, set to `top` by the plugin).
 
 {% capture callout %}
-##### Making tooltips work for keyboard and assistive technology users
+##### Making tooltips work for keyboard and assistive technology clinicUsers
 
-You should only add tooltips to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard users. In addition, most assistive technologies currently do not announce the tooltip in this situation.
+You should only add tooltips to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard clinicUsers. In addition, most assistive technologies currently do not announce the tooltip in this situation.
 
-Additionally, do not rely solely on `hover` as the trigger for your tooltip, as this will make your tooltips impossible to trigger for keyboard users.
+Additionally, do not rely solely on `hover` as the trigger for your tooltip, as this will make your tooltips impossible to trigger for keyboard clinicUsers.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
@@ -128,7 +128,7 @@ Additionally, do not rely solely on `hover` as the trigger for your tooltip, as 
 
 ### Disabled elements
 
-Elements with the `disabled` attribute aren't interactive, meaning users cannot focus, hover, or click them to trigger a tooltip (or popover). As a workaround, you'll want to trigger the tooltip from a wrapper `<div>` or `<span>`, ideally made keyboard-focusable using `tabindex="0"`, and override the `pointer-events` on the disabled element.
+Elements with the `disabled` attribute aren't interactive, meaning clinicUsers cannot focus, hover, or click them to trigger a tooltip (or popover). As a workaround, you'll want to trigger the tooltip from a wrapper `<div>` or `<span>`, ideally made keyboard-focusable using `tabindex="0"`, and override the `pointer-events` on the disabled element.
 
 <div class="tooltip-demo">
 {% capture example %}
@@ -234,7 +234,7 @@ Note that for security reasons the `sanitize`, `sanitizeFn` and `whiteList` opti
       <td>
         <p>How tooltip is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space.</p>
         <p><code>'manual'</code> indicates that the tooltip will be triggered programmatically via the <code>.tooltip('show')</code>, <code>.tooltip('hide')</code> and <code>.tooltip('toggle')</code> methods; this value cannot be combined with any other trigger.</p>
-        <p><code>'hover'</code> on its own will result in tooltips that cannot be triggered via the keyboard, and should only be used if alternative methods for conveying the same information for keyboard users is present.</p>
+        <p><code>'hover'</code> on its own will result in tooltips that cannot be triggered via the keyboard, and should only be used if alternative methods for conveying the same information for keyboard clinicUsers is present.</p>
       </td>
     </tr>
     <tr>
@@ -360,7 +360,7 @@ Updates the position of an element's tooltip.
     </tr>
     <tr>
       <td>shown.bs.tooltip</td>
-      <td>This event is fired when the tooltip has been made visible to the user (will wait for CSS transitions to complete).</td>
+      <td>This event is fired when the tooltip has been made visible to the clinicUser (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
       <td>hide.bs.tooltip</td>
@@ -368,7 +368,7 @@ Updates the position of an element's tooltip.
     </tr>
     <tr>
       <td>hidden.bs.tooltip</td>
-      <td>This event is fired when the tooltip has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+      <td>This event is fired when the tooltip has finished being hidden from the clinicUser (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
       <td>inserted.bs.tooltip</td>

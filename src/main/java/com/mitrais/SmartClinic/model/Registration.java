@@ -35,8 +35,8 @@ public class Registration {
     private String checkupDate;
 
     @ManyToOne
-    private User doctors;
+    private ClinicUser doctors;
 
     @ManyToOne
-    private User patients;
+    private ClinicUser patients;
 }

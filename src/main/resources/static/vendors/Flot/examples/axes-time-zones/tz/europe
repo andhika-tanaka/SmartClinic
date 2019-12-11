@@ -1566,7 +1566,7 @@ Zone	Europe/Vaduz	0:38:04 -	LMT	1894 Jun
 # Fact File, Lithuanian State Department of Tourism
 # </a> (2000-03-27): Local time is GMT+2 hours ..., no daylight saving.
 
-# From a user via Klaus Marten (2003-02-07):
+# From a clinicUser via Klaus Marten (2003-02-07):
 # As a candidate for membership of the European Union, Lithuania will
 # observe Summer Time in 2003, changing its clocks at the times laid
 # down in EU Directive 2000/84 of 19.I.01 (i.e. at the same times as its
@@ -2527,7 +2527,7 @@ Zone Europe/Stockholm	1:12:12 -	LMT	1879 Jan  1
 # The 1940 rules must be deleted.
 #
 # One further detail for Switzerland, which is probably out of scope for
-# most users of tzdata:
+# most clinicUsers of tzdata:
 # The zone file
 # Zone    Europe/Zurich   0:34:08 -       LMT     1848 Sep 12
 #                          0:29:44 -       BMT     1894 Jun #Bern Mean Time

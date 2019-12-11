@@ -187,7 +187,7 @@ You can also get fancy with flexbox utilities to align toasts horizontally and/o
 
 ## Accessibility
 
-Toasts are intended to be small interruptions to your visitors or users, so to help those with screen readers and similar assistive technologies, you should wrap your toasts in an [`aria-live` region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions). Changes to live regions (such as injecting/updating a toast component) are automatically announced by screen readers without needing to move the user's focus or otherwise interrupt the user. Additionally, include `aria-atomic="true"` to ensure that the entire toast is always announced as a single (atomic) unit, rather than announcing what was changed (which could lead to problems if you only update part of the toast's content, or if displaying the same toast content at a later point in time). If the information needed is important for the process, e.g. for a list of errors in a form, then use the [alert component]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/alerts/) instead of toast.
+Toasts are intended to be small interruptions to your visitors or clinicUsers, so to help those with screen readers and similar assistive technologies, you should wrap your toasts in an [`aria-live` region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions). Changes to live regions (such as injecting/updating a toast component) are automatically announced by screen readers without needing to move the clinicUser's focus or otherwise interrupt the clinicUser. Additionally, include `aria-atomic="true"` to ensure that the entire toast is always announced as a single (atomic) unit, rather than announcing what was changed (which could lead to problems if you only update part of the toast's content, or if displaying the same toast content at a later point in time). If the information needed is important for the process, e.g. for a list of errors in a form, then use the [alert component]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/alerts/) instead of toast.
 
 Note that the live region needs to be present in the markup *before* the toast is generated or updated. If you dynamically generate both at the same time and inject them into the page, they will generally not be announced by assistive technologies.
 
@@ -201,7 +201,7 @@ As the content you're displaying changes, be sure to update the [`delay` timeout
 </div>
 {% endhighlight %}
 
-When using `autohide: false`, you must add a close button to allow users to dismiss the toast.
+When using `autohide: false`, you must add a close button to allow clinicUsers to dismiss the toast.
 
 {% capture example %}
 <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
@@ -310,7 +310,7 @@ Hides an element's toast. Your toast will remain on the DOM but won't show anymo
     </tr>
     <tr>
       <td>shown.bs.toast</td>
-      <td>This event is fired when the toast has been made visible to the user.</td>
+      <td>This event is fired when the toast has been made visible to the clinicUser.</td>
     </tr>
     <tr>
       <td>hide.bs.toast</td>
@@ -318,7 +318,7 @@ Hides an element's toast. Your toast will remain on the DOM but won't show anymo
     </tr>
     <tr>
       <td>hidden.bs.toast</td>
-      <td>This event is fired when the toast has finished being hidden from the user.</td>
+      <td>This event is fired when the toast has finished being hidden from the clinicUser.</td>
     </tr>
   </tbody>
 </table>

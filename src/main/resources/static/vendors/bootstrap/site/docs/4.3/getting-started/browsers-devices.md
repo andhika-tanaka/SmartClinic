@@ -143,7 +143,7 @@ Page zooming inevitably presents rendering artifacts in some components, both in
 
 ## Sticky `:hover`/`:focus` on iOS
 
-While `:hover` isn't possible on most touch devices, iOS emulates this behavior, resulting in "sticky" hover styles that persist after tapping one element. These hover styles are only removed when users tap another element. This behavior is considered largely undesirable and appears to not be an issue on Android or Windows devices.
+While `:hover` isn't possible on most touch devices, iOS emulates this behavior, resulting in "sticky" hover styles that persist after tapping one element. These hover styles are only removed when clinicUsers tap another element. This behavior is considered largely undesirable and appears to not be an issue on Android or Windows devices.
 
 Throughout our v4 alpha and beta releases, we included incomplete and commented out code for opting into a media query shim that would disable hover styles in touch device browsers that emulate hovering. This work was never fully completed or enabled, but to avoid complete breakage, we've opted to deprecate [this shim](https://github.com/twbs/mq4-hover-shim) and keep the mixins as shortcuts for the pseudo-classes.
 
@@ -167,7 +167,7 @@ Out of the box, Android 4.1 (and even some newer releases apparently) ship with 
 
 #### Select menu
 
-On `<select>` elements, the Android stock browser will not display the side controls if there is a `border-radius` and/or `border` applied. (See [this StackOverflow question](https://stackoverflow.com/questions/14744437/html-select-box-not-showing-drop-down-arrow-on-android-version-4-0-when-set-with) for details.) Use the snippet of code below to remove the offending CSS and render the `<select>` as an unstyled element on the Android stock browser. The user agent sniffing avoids interference with Chrome, Safari, and Mozilla browsers.
+On `<select>` elements, the Android stock browser will not display the side controls if there is a `border-radius` and/or `border` applied. (See [this StackOverflow question](https://stackoverflow.com/questions/14744437/html-select-box-not-showing-drop-down-arrow-on-android-version-4-0-when-set-with) for details.) Use the snippet of code below to remove the offending CSS and render the `<select>` as an unstyled element on the Android stock browser. The clinicUser agent sniffing avoids interference with Chrome, Safari, and Mozilla browsers.
 
 {% highlight html %}
 <script>

@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Modal
-description: Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+description: Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, clinicUser notifications, or completely custom content.
 group: components
 toc: true
 ---
@@ -12,7 +12,7 @@ Before getting started with Bootstrap's modal component, be sure to read the fol
 
 - Modals are built with HTML, CSS, and JavaScript. They're positioned over everything else in the document and remove scroll from the `<body>` so that modal content scrolls instead.
 - Clicking on the modal "backdrop" will automatically close the modal.
-- Bootstrap only supports one modal window at a time. Nested modals aren't supported as we believe them to be poor user experiences.
+- Bootstrap only supports one modal window at a time. Nested modals aren't supported as we believe them to be poor clinicUser experiences.
 - Modals use `position: fixed`, which can sometimes be a bit particular about its rendering. Whenever possible, place your modal HTML in a top-level position to avoid potential interference from other elements. You'll likely run into issues when nesting a `.modal` within another fixed element.
 - Once again, due to `position: fixed`, there are some caveats with using modals on mobile devices. [See our browser support docs]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile) for details.
 - Due to how HTML5 defines its semantics, [the `autofocus` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus) has no effect in Bootstrap modals. To achieve the same effect, use some custom JavaScript:
@@ -137,7 +137,7 @@ Toggle a working modal demo by clicking the button below. It will slide down and
 
 ### Scrolling long content
 
-When modals become too long for the user's viewport or device, they scroll independent of the page itself. Try the demo below to see what we mean.
+When modals become too long for the clinicUser's viewport or device, they scroll independent of the page itself. Try the demo below to see what we mean.
 
 <div id="exampleModalLong" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -826,7 +826,7 @@ Bootstrap's modal class exposes a few events for hooking into modal functionalit
     </tr>
     <tr>
       <td>shown.bs.modal</td>
-      <td>This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+      <td>This event is fired when the modal has been made visible to the clinicUser (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
     </tr>
     <tr>
       <td>hide.bs.modal</td>
@@ -834,7 +834,7 @@ Bootstrap's modal class exposes a few events for hooking into modal functionalit
     </tr>
     <tr>
       <td>hidden.bs.modal</td>
-      <td>This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+      <td>This event is fired when the modal has finished being hidden from the clinicUser (will wait for CSS transitions to complete).</td>
     </tr>
   </tbody>
 </table>

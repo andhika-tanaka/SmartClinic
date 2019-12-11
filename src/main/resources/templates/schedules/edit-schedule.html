@@ -73,13 +73,13 @@
 
                                     <!-- User -->
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="user">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="clinicUser">
                                             User
                                         </label>
-                                        <div class="col-md-6 col-sm-6" id="user">
-                                            <select name="users" class="form-control">
-                                                <option th:each="s : ${users}" th:value="${s.id}"
-                                                        th:text="${s.firstName} + ' ' + ${s.lastName}" th:field="*{users}"></option>
+                                        <div class="col-md-6 col-sm-6" id="clinicUser">
+                                            <select name="clinicUsers" class="form-control">
+                                                <option th:each="s : ${clinicUsers}" th:value="${s.id}"
+                                                        th:text="${s.firstName} + ' ' + ${s.lastName}" th:field="*{clinicUsers}"></option>
                                             </select>
                                         </div>
                                     </div>

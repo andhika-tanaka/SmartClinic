@@ -1,5 +1,5 @@
 ---
-title: "How to write a file / give it to the user"
+title: "How to write a file / give it to the clinicUser"
 layout: default
 section: example
 ---
@@ -52,7 +52,7 @@ Opera  | Firefox | Safari | Chrome | Internet Explorer
 #### Downloadify
 
 [Downloadify](https://github.com/dcneiner/downloadify) uses a small Flash SWF
-to download files to a user's computer with a filename that you can choose.
+to download files to a clinicUser's computer with a filename that you can choose.
 Doug Neiner has added the `dataType` option to allow you to pass a zip for
 downloading. Follow the [Downloadify demo](http://pixelgraphics.us/downloadify/test.html)
 with the following changes:
@@ -79,7 +79,7 @@ TODO : send data as GET / POST ?
 [Franz Buchinger](http://www.picurl.org/blog/author/franz/) has written a
 brilliant tutorial on [using JSZip with Google Gears](http://www.picurl.org/blog/2009/11/22/creating-zip-archives-with-gears)
 ([part 2](http://www.picurl.org/blog/2009/11/29/gearszipper-part2-adding-support-for-real-files-and-canvas-elements/)).
-If you want to let your Gears users download several files at once I really
+If you want to let your Gears clinicUsers download several files at once I really
 recommend having a look at some of his [examples](http://picurl.org/gears/zipper/).
 
 

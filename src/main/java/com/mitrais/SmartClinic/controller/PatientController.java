@@ -1,7 +1,7 @@
 package com.mitrais.SmartClinic.controller;
 
+import com.mitrais.SmartClinic.model.ClinicUser;
 import com.mitrais.SmartClinic.model.Role;
-import com.mitrais.SmartClinic.model.User;
 import com.mitrais.SmartClinic.repository.RoleRepository;
 import com.mitrais.SmartClinic.repository.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -26,14 +26,14 @@ public class PatientController {
 
     @GetMapping
     public String index(Model model) {
-        List<User> patients = userRepository.findPatients();
+        List<ClinicUser> patients = userRepository.findPatients();
         model.addAttribute("patients", patients);
         return "patients/list-patient";
     }
 
     @GetMapping("/add")
     public String showUserForm(Model model) {
-        User patient = new User();
+        ClinicUser patient = new ClinicUser();
         model.addAttribute("patient",patient);
 
         List<Role> roles = roleRepository.findPatients();
@@ -42,7 +42,7 @@ public class PatientController {
     }
 
     @PostMapping("/add")
-    public String saveUser(User patient, BindingResult bindingResult) {
+    public String saveUser(ClinicUser patient, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "patients/add-patient";
         }
@@ -52,7 +52,7 @@ public class PatientController {
 
     @GetMapping("/edit/{id}")
     public String showEditUserForm(@PathVariable("id") Long id, Model model) {
-        User patient = userRepository.findById(id).
+        ClinicUser patient = userRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         model.addAttribute("patient", patient);
 
@@ -62,7 +62,7 @@ public class PatientController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editUser(@PathVariable("id") Long id, User patient, BindingResult bindingResult) {
+    public String editUser(@PathVariable("id") Long id, ClinicUser patient, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             patient.setId(id);
             return "patients/edit-patient";
@@ -73,7 +73,7 @@ public class PatientController {
 
     @GetMapping("/detail/{id}")
     public String showDetailForm(@PathVariable("id") Long id, Model model) {
-        User patient = userRepository.findById(id).
+        ClinicUser patient = userRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         model.addAttribute("patient", patient);
         return "patients/detail-patient";

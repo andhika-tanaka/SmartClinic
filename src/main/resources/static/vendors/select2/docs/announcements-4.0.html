@@ -135,7 +135,7 @@ slug: announcements-4.0
         <p>
           In past versions of Select2, an <code>&lt;input type="hidden" /&gt;</code>
           tag was recommended if you wanted to do anything advanced with Select2,
-          such as work with remote data sources or allow users to add their own
+          such as work with remote data sources or allow clinicUsers to add their own
           tags. This had the unfortunate side-effect of servers not receiving the
           data from Select2 as an array, like a standard <code>&lt;select&gt;</code>
           element does, but instead sending a string containing the comma-separated
@@ -262,7 +262,7 @@ $.fn.select2.amd.require(['select2/compat/matcher'], function (oldMatcher) {
           In the most recent versions of Select2, placeholders could only be
           applied to the first (typically the default) option in a
           <code>&lt;select&gt;</code> if it was blank. The
-          <code>placeholderOption</code> option was added to Select2 to allow users
+          <code>placeholderOption</code> option was added to Select2 to allow clinicUsers
           using the <code>select</code> tag to select a different option, typically
           an automatically generated option with a different value.
         </p>
@@ -482,7 +482,7 @@ $request.then(function (data) {
           been replaced by
           <a href="options.html#dataAdapter">custom data adapters</a> that handle
           how Select2 stores and retrieves the data that will be displayed to the
-          user. An example of the old <code>query</code> option is provided below,
+          clinicUser. An example of the old <code>query</code> option is provided below,
           which is
           <a href="http://select2.github.io/select2/#data">the same as the old example</a>,
           and it generates results that contain the search term repeated a certain
@@ -644,7 +644,7 @@ var data = $.map([
         <h3 id="changed-translations">Renamed translation options</h3>
 
         <p>
-          In previous versions of Select2, the default messages provided to users
+          In previous versions of Select2, the default messages provided to clinicUsers
           could be localized to fit the language of the website that it was being
           used on. Select2 only comes with the English language by default, but
           provides
@@ -681,7 +681,7 @@ var data = $.map([
           the <code>data-data</code> attribute, which maps to
           <a href="options.html#data">the array data</a> option. You should also
           enable tags by setting <code>data-tags="true"</code> on the object, to
-          maintain the ability for users to create their own options as well.
+          maintain the ability for clinicUsers to create their own options as well.
         </p>
 
         <p>

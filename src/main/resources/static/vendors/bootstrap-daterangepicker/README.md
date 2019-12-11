@@ -2,7 +2,7 @@
 
 ![Improvely.com](https://i.imgur.com/UTRlaar.png)
 
-This date range picker component creates a dropdown menu from which a user can
+This date range picker component creates a dropdown menu from which a clinicUser can
 select a range of dates. I created it while building the UI for [Improvely](http://www.improvely.com), 
 which needed a way to select date ranges for reports.
 

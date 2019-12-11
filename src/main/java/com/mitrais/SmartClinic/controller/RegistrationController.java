@@ -1,10 +1,9 @@
 package com.mitrais.SmartClinic.controller;
 
 import com.mitrais.SmartClinic.model.Registration;
-import com.mitrais.SmartClinic.model.User;
+import com.mitrais.SmartClinic.model.ClinicUser;
 import com.mitrais.SmartClinic.repository.RegistrationRepository;
 import com.mitrais.SmartClinic.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -43,11 +42,11 @@ public class RegistrationController {
         model.addAttribute(registration);
 
         /*Patient List For Combo Box*/
-        List<User> patients = userRepository.findPatients();
+        List<ClinicUser> patients = userRepository.findPatients();
         model.addAttribute("patients", patients);
 
         /*Doctor List For Combo Box*/
-        List<User> doctors = userRepository.findDoctors();
+        List<ClinicUser> doctors = userRepository.findDoctors();
         model.addAttribute("doctors", doctors);
 
         return "/registrations/add-registration";

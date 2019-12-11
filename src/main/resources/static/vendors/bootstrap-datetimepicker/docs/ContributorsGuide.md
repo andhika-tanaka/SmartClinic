@@ -3,7 +3,7 @@ This guide is aimed to contributors wishing to understand the internals of the c
 **Note:** this guide refers to **version 4** which is currently in beta and will be updated as we progress
 
 ## Introduction
-This component consists actually of 2 subcomponent UI widgets one for the date and one for the time selection process. The developers can configure which of those are needed and also the granularity that the component will allow the users to select a date/time. Developers also choose the format that the selected datetime will be displayed in the input field.
+This component consists actually of 2 subcomponent UI widgets one for the date and one for the time selection process. The developers can configure which of those are needed and also the granularity that the component will allow the clinicUsers to select a date/time. Developers also choose the format that the selected datetime will be displayed in the input field.
 The component uses on `jQuery`, `moment.js` and `bootstrap` libraries.
 
 ## Code
@@ -17,9 +17,9 @@ The component uses on `jQuery`, `moment.js` and `bootstrap` libraries.
 
 * `date` - Holds the moment object for the model value of the component. **DON'T** directly change this variable unless you **REALLY** know what you are doing. Use `setValue()` function to set it. It handles all component logic for updating the model value and emitting all the appropriate events
 
-* `viewDate` - Holds the currently selected value that the user has selected through the widget. This is not the model value this is the view value. Changing this usually requires a subsequent call to `update()` function
+* `viewDate` - Holds the currently selected value that the clinicUser has selected through the widget. This is not the model value this is the view value. Changing this usually requires a subsequent call to `update()` function
 
-* `unset` - A `boolean` variable that holds wheather the components model value is set or not. Model's value starts as `unset = true` and if is either set by the user or programmatically through the api to a valid value then it is set to `false`. If subsequent events lead to an invalid value then this variable is set to `true` again. Setting this variable usually takes place in the `setValue()` function.
+* `unset` - A `boolean` variable that holds wheather the components model value is set or not. Model's value starts as `unset = true` and if is either set by the clinicUser or programmatically through the api to a valid value then it is set to `false`. If subsequent events lead to an invalid value then this variable is set to `true` again. Setting this variable usually takes place in the `setValue()` function.
 
 * `input` - Hold the DOM input element this instance is attached to
 
@@ -35,7 +35,7 @@ The component uses on `jQuery`, `moment.js` and `bootstrap` libraries.
 
 * `currentViewMode` - Hold the state of the current viewMode for the DatePicker subcomponent
 
-* `actions` - An object containing all the functions that can be called when the users clicks on the widget
+* `actions` - An object containing all the functions that can be called when the clinicUsers clicks on the widget
 
 * `datePickerModes` - An array of objects with configuration parameters for the different views of the DatePicker subcomponent
 

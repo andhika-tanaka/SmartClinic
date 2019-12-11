@@ -898,9 +898,9 @@ All dropdown events are fired at the `.dropdown-menu`'s parent element and have 
 | Event | Description |
 | --- | --- |
 | `show.bs.dropdown` | This event fires immediately when the show instance method is called. |
-| `shown.bs.dropdown` | This event is fired when the dropdown has been made visible to the user (will wait for CSS transitions, to complete). |
+| `shown.bs.dropdown` | This event is fired when the dropdown has been made visible to the clinicUser (will wait for CSS transitions, to complete). |
 | `hide.bs.dropdown` | This event is fired immediately when the hide instance method has been called. |
-| `hidden.bs.dropdown`| This event is fired when the dropdown has finished being hidden from the user (will wait for CSS transitions, to complete). |
+| `hidden.bs.dropdown`| This event is fired when the dropdown has finished being hidden from the clinicUser (will wait for CSS transitions, to complete). |
 
 {% highlight js %}
 $('#myDropdown').on('show.bs.dropdown', function () {

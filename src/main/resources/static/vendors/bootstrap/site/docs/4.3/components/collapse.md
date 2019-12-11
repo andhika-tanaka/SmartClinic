@@ -124,9 +124,9 @@ Using the [card]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/card
 
 ## Accessibility
 
-Be sure to add `aria-expanded` to the control element. This attribute explicitly conveys the current state of the collapsible element tied to the control to screen readers and similar assistive technologies. If the collapsible element is closed by default, the attribute on the control element should have a value of `aria-expanded="false"`. If you've set the collapsible element to be open by default using the `show` class, set `aria-expanded="true"` on the control instead. The plugin will automatically toggle this attribute on the control based on whether or not the collapsible element has been opened or closed (via JavaScript, or because the user triggered another control element also tied to the same collapsbile element). If the control element's HTML element is not a button (e.g., an `<a>` or `<div>`), the attribute `role="button"` should be added to the element.
+Be sure to add `aria-expanded` to the control element. This attribute explicitly conveys the current state of the collapsible element tied to the control to screen readers and similar assistive technologies. If the collapsible element is closed by default, the attribute on the control element should have a value of `aria-expanded="false"`. If you've set the collapsible element to be open by default using the `show` class, set `aria-expanded="true"` on the control instead. The plugin will automatically toggle this attribute on the control based on whether or not the collapsible element has been opened or closed (via JavaScript, or because the clinicUser triggered another control element also tied to the same collapsbile element). If the control element's HTML element is not a button (e.g., an `<a>` or `<div>`), the attribute `role="button"` should be added to the element.
 
-If your control element is targeting a single collapsible element – i.e. the `data-target` attribute is pointing to an `id` selector – you should add the `aria-controls` attribute to the control element, containing the `id` of the collapsible element. Modern screen readers and similar assistive technologies make use of this attribute to provide users with additional shortcuts to navigate directly to the collapsible element itself.
+If your control element is targeting a single collapsible element – i.e. the `data-target` attribute is pointing to an `id` selector – you should add the `aria-controls` attribute to the control element, containing the `id` of the collapsible element. Modern screen readers and similar assistive technologies make use of this attribute to provide clinicUsers with additional shortcuts to navigate directly to the collapsible element itself.
 
 Note that Bootstrap's current implementation does not cover the various keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
 
@@ -231,7 +231,7 @@ Bootstrap's collapse class exposes a few events for hooking into collapse functi
     </tr>
     <tr>
       <td>shown.bs.collapse</td>
-      <td>This event is fired when a collapse element has been made visible to the user (will wait for CSS transitions to complete).</td>
+      <td>This event is fired when a collapse element has been made visible to the clinicUser (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
       <td>hide.bs.collapse</td>
@@ -239,7 +239,7 @@ Bootstrap's collapse class exposes a few events for hooking into collapse functi
     </tr>
     <tr>
       <td>hidden.bs.collapse</td>
-      <td>This event is fired when a collapse element has been hidden from the user (will wait for CSS transitions to complete).</td>
+      <td>This event is fired when a collapse element has been hidden from the clinicUser (will wait for CSS transitions to complete).</td>
     </tr>
   </tbody>
 </table>

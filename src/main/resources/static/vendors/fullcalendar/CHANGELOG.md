@@ -15,7 +15,7 @@ v2.7.2 (2016-05-20)
 - fixed dayClick incorrectly triggered on touch scroll (#3152)
 - fixed touch event dragging wrongfully beginning upon scrolling document (#3160)
 - fixed minified JS still contained comments
-- UI change: mouse users must hover over an event to reveal its resizers
+- UI change: mouse clinicUsers must hover over an event to reveal its resizers
 
 
 v2.7.1 (2016-05-01)
@@ -784,7 +784,7 @@ v1.4.1 (2009-10-31)
 - gcal feed 'currentTimezone' option
 - bugfixes
 	- year/month/date option sometimes wouldn't set correctly (depending on current date)
-	- daylight savings issue caused agenda views to start at 1am (for BST users)
+	- daylight savings issue caused agenda views to start at 1am (for BST clinicUsers)
 - cleanup of gcal.js code
 
 
@@ -805,7 +805,7 @@ v1.4 (2009-10-19)
 	- eventDrop now has an an allDay parameter
 	  (this will affect those who use revertFunc, adjust parameter list)
 - added 'prevYear' and 'nextYear' for buttons in header
-- minor change for theme users, ui-state-hover not applied to active/inactive buttons
+- minor change for theme clinicUsers, ui-state-hover not applied to active/inactive buttons
 - added event-color-changing example in docs
 - better defaults for right-to-left themed button icons
 

@@ -97,7 +97,7 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
 
 ### Dismiss on next click
 
-Use the `focus` trigger to dismiss popovers on the user's next click of a different element than the toggle element.
+Use the `focus` trigger to dismiss popovers on the clinicUser's next click of a different element than the toggle element.
 
 {% capture callout %}
 #### Specific markup required for dismiss-on-next-click
@@ -119,9 +119,9 @@ $('.popover-dismiss').popover({
 
 ### Disabled elements
 
-Elements with the `disabled` attribute aren't interactive, meaning users cannot hover or click them to trigger a popover (or tooltip). As a workaround, you'll want to trigger the popover from a wrapper `<div>` or `<span>` and override the `pointer-events` on the disabled element.
+Elements with the `disabled` attribute aren't interactive, meaning clinicUsers cannot hover or click them to trigger a popover (or tooltip). As a workaround, you'll want to trigger the popover from a wrapper `<div>` or `<span>` and override the `pointer-events` on the disabled element.
 
-For disabled popover triggers, you may also prefer `data-trigger="hover"` so that the popover appears as immediate visual feedback to your users as they may not expect to _click_ on a disabled element.
+For disabled popover triggers, you may also prefer `data-trigger="hover"` so that the popover appears as immediate visual feedback to your clinicUsers as they may not expect to _click_ on a disabled element.
 
 {% capture example %}
 <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
@@ -355,7 +355,7 @@ Updates the position of an element's popover.
     </tr>
     <tr>
       <td>shown.bs.popover</td>
-      <td>This event is fired when the popover has been made visible to the user (will wait for CSS transitions to complete).</td>
+      <td>This event is fired when the popover has been made visible to the clinicUser (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
       <td>hide.bs.popover</td>
@@ -363,7 +363,7 @@ Updates the position of an element's popover.
     </tr>
     <tr>
       <td>hidden.bs.popover</td>
-      <td>This event is fired when the popover has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+      <td>This event is fired when the popover has finished being hidden from the clinicUser (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
       <td>inserted.bs.popover</td>
