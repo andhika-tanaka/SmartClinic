@@ -9,9 +9,10 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     #dynamic
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+    url: ${JDBC_DATABASE_URL:}
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
 
     #local
     #url: jdbc:postgresql://localhost:5432/smartclinicdb
