@@ -38,11 +38,16 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- MySQL Driver -->
+        <!-- JDBC -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
 
         <!-- Lombok for Setter and Getter -->
