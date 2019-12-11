@@ -34,7 +34,7 @@ public class UserController {
     @GetMapping("/add")
     public String showUserForm(Model model) {
         ClinicUser clinicUser = new ClinicUser();
-        model.addAttribute(clinicUser);
+        model.addAttribute("user",clinicUser);
 
         List<Role> roles = roleRepository.findStaffs();
         model.addAttribute("roles", roles);
@@ -42,11 +42,11 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public String saveUser(ClinicUser clinicUser, BindingResult bindingResult) {
+    public String saveUser(ClinicUser user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "users/add-user";
         }
-        userRepository.save(clinicUser);
+        userRepository.save(user);
         return "redirect:/users";
     }
 
@@ -61,22 +61,10 @@ public class UserController {
         return "users/edit-user";
     }
 
-    @PostMapping("/edit/{id}")
-    public String editUser(@PathVariable("id") Long id, ClinicUser clinicUser, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            clinicUser.setId(id);
-            return "users/edit-user";
-        }
-        userRepository.save(clinicUser);
+    @PostMapping("/update")
+    public String saveDataUser(ClinicUser user) {
+        userRepository.save(user);
         return "redirect:/users";
-    }
-
-    @GetMapping("/detail/{id}")
-    public String showDetailForm(@PathVariable("id") Long id, Model model) {
-        ClinicUser clinicUser = userRepository.findById(id).
-                orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        model.addAttribute("user", clinicUser);
-        return "users/detail-user";
     }
 
     @GetMapping(value = "/delete/{id}")

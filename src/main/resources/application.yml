@@ -8,9 +8,16 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
+    #dynamic
+    #url: ${JDBC_DATABASE_URL}
+    #username: ${JDBC_DATABASE_USERNAME}
+    #password: ${JDBC_DATABASE_PASSWORD}
+
+    #local
     url: jdbc:postgresql://localhost:5432/smartclinicdb
     username: postgres
     password: root
+
     driver-class-name: org.postgresql.Driver
 
 server:
