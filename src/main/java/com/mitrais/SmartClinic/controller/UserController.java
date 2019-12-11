@@ -4,6 +4,7 @@ import com.mitrais.SmartClinic.model.ClinicUser;
 import com.mitrais.SmartClinic.model.Role;
 import com.mitrais.SmartClinic.repository.RoleRepository;
 import com.mitrais.SmartClinic.repository.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,13 +16,16 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private final
-    UserRepository userRepository;
-    RoleRepository roleRepository;
+    private final UserRepository userRepository;
 
-    public UserController(UserRepository userRepository, RoleRepository roleRepository) {
+    private final RoleRepository roleRepository;
+
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public UserController(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @GetMapping
@@ -46,6 +50,8 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "users/add-user";
         }
+        user.setActive(1);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return "redirect:/users";
     }
@@ -61,8 +67,14 @@ public class UserController {
         return "users/edit-user";
     }
 
-    @PostMapping("/update")
-    public String saveDataUser(ClinicUser user) {
+    @PostMapping("/edit/{id}")
+    public String editUser(@PathVariable("id") Long id, ClinicUser user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            user.setId(id);
+            return "users/edit-user";
+        }
+        user.setActive(1);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return "redirect:/users";
     }

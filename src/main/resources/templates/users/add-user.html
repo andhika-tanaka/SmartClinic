@@ -109,6 +109,19 @@
                                         </div>
                                     </div>
 
+                                    <!-- Password -->
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password *
+                                        </label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <input id="password" class="form-control" data-parsley-trigger="change"
+                                                   data-parsley-minlength="2" data-parsley-maxlength="60"
+                                                   data-parsley-minlength-message="You need to enter at least 2 caracters for the first name"
+                                                   name="firstName" placeholder="first name e.g Jon" required="required"
+                                                   type="password" th:field="*{password}">
+                                        </div>
+                                    </div>
+
                                     <!-- ID Number -->
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_num">ID

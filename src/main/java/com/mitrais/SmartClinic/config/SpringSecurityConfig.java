@@ -34,9 +34,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
             throws Exception {
         auth.
                 jdbcAuthentication()
-                .usersByUsernameQuery("SELECT email, password, active FROM user WHERE email = ?")
-                .authoritiesByUsernameQuery("SELECT u.email, r.role from user u " +
-                        "INNER JOIN user_roles ur " +
+                .usersByUsernameQuery("SELECT email, password, active FROM clinic_user WHERE email = ?")
+                .authoritiesByUsernameQuery("SELECT u.email, r.role from clinic_user u " +
+                        "INNER JOIN clinic_user_roles ur " +
                         "ON(u.id=ur.user_id) " +
                         "INNER JOIN role r " +
                         "ON(ur.role_id=r.id) " +
@@ -53,7 +53,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/home","/system", "/about","/build/**","/css/**","/images/**","/js/**","/vendors/**","/fragments/**").permitAll()
+                .antMatchers("/","/users/**","/home","/system", "/about","/build/**","/css/**","/images/**","/js/**","/vendors/**","/fragments/**").permitAll()
                 .antMatchers("/index/**").hasAnyRole("ADMIN")
                 .antMatchers("/index/**").hasAnyRole("PEGAWAI")
                 .anyRequest().authenticated()
