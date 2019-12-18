@@ -1,12 +1,13 @@
 package com.mitrais.SmartClinic.model;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
+@DynamicUpdate
 public class ClinicUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,10 +41,5 @@ public class ClinicUser {
 
     private Integer active;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles;
+    private Role role;
 }

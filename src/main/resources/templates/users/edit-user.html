@@ -232,14 +232,10 @@
                                             Roles
                                         </label>
                                         <div class="col-md-6 col-sm-6">
-                                            <div th:each="r : ${roles}">
-                                                <label>
-                                                    <input type="checkbox" name="roles"
-                                                           th:text="' ' + ${r.title} + ' - ' +${r.name}"
-                                                           th:value="${r.id}" th:field="*{roles}"
-                                                           class="flat">
-                                                </label>
-                                            </div>
+                                            <select name="role" class="form-control">
+                                                <option th:each="role : ${T(com.mitrais.SmartClinic.model.Role).values()}"
+                                                        th:value="${role}" th:text="${role.displayValue}" th:field="*{role}"></option>
+                                            </select>
                                         </div>
                                     </div>
 

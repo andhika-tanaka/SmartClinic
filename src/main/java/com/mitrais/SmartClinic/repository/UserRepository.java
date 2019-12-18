@@ -10,12 +10,12 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<ClinicUser, Long> {
 
-    @Query("SELECT u FROM ClinicUser u JOIN u.roles p WHERE NOT (p.title='PATIENT')")
+    @Query("SELECT u FROM ClinicUser u WHERE NOT u.role = 3")
     List<ClinicUser> findStaffs();
 
-    @Query("SELECT u FROM ClinicUser u JOIN u.roles p WHERE p.title='PATIENT'")
+    @Query("SELECT u FROM ClinicUser u WHERE u.role = 3")
     List<ClinicUser> findPatients();
 
-    @Query("SELECT u FROM ClinicUser u JOIN u.roles p WHERE p.title='DOCTOR'")
+    @Query("SELECT u FROM ClinicUser u WHERE u.role = 3")
     List<ClinicUser> findDoctors();
 }

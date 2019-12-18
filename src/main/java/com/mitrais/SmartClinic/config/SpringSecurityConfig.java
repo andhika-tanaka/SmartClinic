@@ -35,14 +35,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.
                 jdbcAuthentication()
                 .usersByUsernameQuery("SELECT email, password, active FROM clinic_user WHERE email = ?")
-                .authoritiesByUsernameQuery("SELECT u.email, r.role from clinic_user u " +
-                        "INNER JOIN clinic_user_roles ur " +
-                        "ON(u.id=ur.user_id) " +
-                        "INNER JOIN role r " +
-                        "ON(ur.role_id=r.id) " +
-                        "WHERE u.email=?")
+                .authoritiesByUsernameQuery("SELECT email, roles from clinic_user WHERE email = ?")
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
+        auth.
+                inMemoryAuthentication()
+                .withUser("user").password(bCryptPasswordEncoder.encode("user")).roles("USER")
+                .and()
+                .withUser("admin").password(bCryptPasswordEncoder.encode("admin")).roles("USER", "ADMIN");
     }
 
     // roles admin allow to access /admin/**

@@ -2,8 +2,8 @@ package com.mitrais.SmartClinic.controller;
 
 import com.mitrais.SmartClinic.model.ClinicUser;
 import com.mitrais.SmartClinic.model.Role;
-import com.mitrais.SmartClinic.repository.RoleRepository;
 import com.mitrais.SmartClinic.repository.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,13 +15,13 @@ import java.util.List;
 @RequestMapping("/patients")
 public class PatientController {
 
-    private final
-    UserRepository userRepository;
-    RoleRepository roleRepository;
+    private final UserRepository userRepository;
 
-    public PatientController(UserRepository userRepository, RoleRepository roleRepository) {
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public PatientController(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @GetMapping
@@ -35,9 +35,6 @@ public class PatientController {
     public String showUserForm(Model model) {
         ClinicUser patient = new ClinicUser();
         model.addAttribute("patient",patient);
-
-        List<Role> roles = roleRepository.findPatients();
-        model.addAttribute("roles", roles);
         return "patients/add-patient";
     }
 
@@ -46,6 +43,9 @@ public class PatientController {
         if (bindingResult.hasErrors()) {
             return "patients/add-patient";
         }
+        patient.setActive(1);
+        patient.setRole(Role.ROLE_PATIENT);
+        patient.setPassword(bCryptPasswordEncoder.encode(patient.getPassword()));
         userRepository.save(patient);
         return "redirect:/patients";
     }
@@ -55,9 +55,6 @@ public class PatientController {
         ClinicUser patient = userRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         model.addAttribute("patient", patient);
-
-        List<Role> roles = roleRepository.findPatients();
-        model.addAttribute("roles", roles);
         return "patients/edit-patient";
     }
 
@@ -67,16 +64,11 @@ public class PatientController {
             patient.setId(id);
             return "patients/edit-patient";
         }
+        patient.setActive(1);
+        patient.setRole(Role.ROLE_PATIENT);
+        patient.setPassword(bCryptPasswordEncoder.encode(patient.getPassword()));
         userRepository.save(patient);
         return "redirect:/patients";
-    }
-
-    @GetMapping("/detail/{id}")
-    public String showDetailForm(@PathVariable("id") Long id, Model model) {
-        ClinicUser patient = userRepository.findById(id).
-                orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        model.addAttribute("patient", patient);
-        return "patients/detail-patient";
     }
 
     @GetMapping(value = "/delete/{id}")

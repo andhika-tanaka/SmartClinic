@@ -2,24 +2,20 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-      dynamic-insert: true
-      dynamic-update: true
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
+    #local
+    url: jdbc:postgresql://localhost:5432/dbsmartclinic
+    username: postgres
+    password: root
+
     #dynamic
-    url: ${JDBC_DATABASE_URL:}
+    #url: ${JDBC_DATABASE_URL:}
+
     hikari:
       connection-timeout: 30000
       maximum-pool-size: 10
 
-    #local
-    #url: jdbc:postgresql://localhost:5432/smartclinicdb
-    #username: postgres
-    #password: root
-
     driver-class-name: org.postgresql.Driver
-
-server:
-  port: ${PORT:5000}

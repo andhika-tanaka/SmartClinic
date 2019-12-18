@@ -80,7 +80,7 @@
                                             <input id="firstName" class="form-control" data-parsley-trigger="change"
                                                    data-parsley-minlength="2" data-parsley-maxlength="60"
                                                    data-parsley-minlength-message="You need to enter at least 2 caracters for the first name"
-                                                   name="firstName" placeholder="first name e.g Jon" required="required"
+                                                   name="firstName" placeholder="First Name e.g Jon" required="required"
                                                    type="text" th:field="*{firstName}">
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                             <input id="lastName" class="form-control" data-parsley-trigger="change"
                                                    data-parsley-minlength="2" data-parsley-maxlength="60"
                                                    data-parsley-minlength-message="You need to enter at least 2 caracters for the last name"
-                                                   name="lastName" placeholder="last name e.g Doe" required="required"
+                                                   name="lastName" placeholder="Last Name e.g Doe" required="required"
                                                    type="text" th:field="*{lastName}">
                                         </div>
                                     </div>
@@ -105,19 +105,20 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6">
                                             <input type="email" id="email" data-parsley-trigger="change" name="email"
-                                                   required="required" class="form-control" th:field="*{email}">
+                                                   required="required" placeholder="Email" class="form-control" th:field="*{email}">
                                         </div>
                                     </div>
 
                                     <!-- Password -->
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password *
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password
+                                            *
                                         </label>
                                         <div class="col-md-6 col-sm-6">
                                             <input id="password" class="form-control" data-parsley-trigger="change"
                                                    data-parsley-minlength="2" data-parsley-maxlength="60"
                                                    data-parsley-minlength-message="You need to enter at least 2 caracters for the first name"
-                                                   name="firstName" placeholder="first name e.g Jon" required="required"
+                                                   name="firstName" placeholder="Password" required="required"
                                                    type="password" th:field="*{password}">
                                         </div>
                                     </div>
@@ -131,6 +132,7 @@
                                             <input type="number" id="id_num" name="id_num" required="required"
                                                    data-parsley-trigger="change"
                                                    data-parsley-minlength="16" data-parsley-maxlength="16"
+                                                   placeholder="ID Number"
                                                    class="form-control" th:field="*{idNumber}">
                                         </div>
                                     </div>
@@ -145,6 +147,7 @@
                                                    data-parsley-trigger="change"
                                                    data-parsley-minlength="2" data-parsley-maxlength="60"
                                                    data-parsley-minlength-message="You need to enter at least 2 caracters for the street name"
+                                                   placeholder="Address"
                                                    class="form-control" th:field="*{address}">
                                         </div>
                                         <label class="col-form-label col-md-1 col-sm-1" for="postal_code">Postal Code *
@@ -154,6 +157,7 @@
                                                    data-parsley-trigger="change"
                                                    data-parsley-minlength="5" data-parsley-maxlength="5"
                                                    data-parsley-minlength-message="You need to enter a 5 digits postal code"
+                                                   placeholder="Postal Code"
                                                    class="form-control" th:field="*{postalCode}">
                                         </div>
                                     </div>
@@ -165,6 +169,7 @@
                                                    data-parsley-trigger="change"
                                                    data-parsley-minlength="2" data-parsley-maxlength="60"
                                                    data-parsley-minlength-message="You need to enter at least 2 caracters for the city name"
+                                                   placeholder="City"
                                                    class="form-control" th:field="*{city}">
                                         </div>
                                         <label class="col-form-label col-md-1 col-sm-1" for="province">Province *
@@ -174,6 +179,7 @@
                                                    data-parsley-trigger="change"
                                                    data-parsley-minlength="2" data-parsley-maxlength="60"
                                                    data-parsley-minlength-message="You need to enter at least 2 caracters for the province name"
+                                                   placeholder="Province"
                                                    class="form-control" th:field="*{province}">
                                         </div>
                                     </div>
@@ -215,6 +221,7 @@
                                                    data-parsley-trigger="change"
                                                    data-parsley-minlength="8" data-parsley-maxlength="20"
                                                    data-parsley-minlength-message="You need to enter at least 8 digits of your telephone number"
+                                                   placeholder="Phone 1"
                                                    class="form-control" th:field="*{phone1}">
                                         </div>
                                     </div>
@@ -226,7 +233,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6">
                                             <input type="tel" id="telephone2" name="phone" class="form-control"
-                                                   th:field="*{phone2}">
+                                                   placeholder="Phone 2" th:field="*{phone2}">
                                         </div>
                                     </div>
 
@@ -235,14 +242,10 @@
                                             Roles
                                         </label>
                                         <div class="col-md-6 col-sm-6">
-                                            <div th:each="r : ${roles}">
-                                                <label>
-                                                    <input type="checkbox" name="roles"
-                                                           th:text="' ' + ${r.title} + ' - ' +${r.name}"
-                                                           th:value="${r.id}" th:field="*{roles}"
-                                                           class="flat">
-                                                </label>
-                                            </div>
+                                            <select name="role" class="form-control">
+                                                <option th:each="role : ${T(com.mitrais.SmartClinic.model.Role).values()}"
+                                                        th:value="${role}" th:text="${role.displayValue}" th:field="*{role}"></option>
+                                            </select>
                                         </div>
                                     </div>
 

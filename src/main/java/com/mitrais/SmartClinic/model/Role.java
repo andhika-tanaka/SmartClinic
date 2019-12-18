@@ -1,22 +1,18 @@
 package com.mitrais.SmartClinic.model;
 
-import lombok.Data;
+public enum Role {
+    ROLE_ADMIN("Admin"),
+    ROLE_STAFF("Staff"),
+    ROLE_DOCTOR("Doctor"),
+    ROLE_PATIENT("Patient");
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+    private final String displayValue;
 
-@Entity
-@Data
-public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Role(String displayValue) {
+        this.displayValue = displayValue;
+    }
 
-    private String title;
-
-    private String role;
-
-    private String name;
+    public String getDisplayValue() {
+        return displayValue;
+    }
 }

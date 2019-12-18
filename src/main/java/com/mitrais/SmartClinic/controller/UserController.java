@@ -1,8 +1,6 @@
 package com.mitrais.SmartClinic.controller;
 
 import com.mitrais.SmartClinic.model.ClinicUser;
-import com.mitrais.SmartClinic.model.Role;
-import com.mitrais.SmartClinic.repository.RoleRepository;
 import com.mitrais.SmartClinic.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,13 +16,10 @@ public class UserController {
 
     private final UserRepository userRepository;
 
-    private final RoleRepository roleRepository;
-
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserController(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserController(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -38,10 +33,7 @@ public class UserController {
     @GetMapping("/add")
     public String showUserForm(Model model) {
         ClinicUser clinicUser = new ClinicUser();
-        model.addAttribute("user",clinicUser);
-
-        List<Role> roles = roleRepository.findStaffs();
-        model.addAttribute("roles", roles);
+        model.addAttribute("user", clinicUser);
         return "users/add-user";
     }
 
@@ -61,9 +53,6 @@ public class UserController {
         ClinicUser clinicUser = userRepository.findById(id).
                 orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         model.addAttribute("user", clinicUser);
-
-        List<Role> roles = roleRepository.findStaffs();
-        model.addAttribute("roles", roles);
         return "users/edit-user";
     }
 

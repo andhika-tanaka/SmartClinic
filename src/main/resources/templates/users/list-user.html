@@ -148,8 +148,8 @@
                                                         Alamat
                                                     </td>
                                                     <td>
-                                                        <span th:each="p,iterStat : ${u.roles}">
-                                                        <span th:text="${p.title} + ' - ' + ${p.name}"/><th:block th:if="${!iterStat.last}">, </th:block>
+                                                        <span th:each="p,iterStat : ${u.role}">
+                                                        <span th:text="${p.displayValue}"/><th:block th:if="${!iterStat.last}">, </th:block>
                                                         </span>
                                                     </td>
                                                 </tr>

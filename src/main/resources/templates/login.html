@@ -82,19 +82,124 @@
 
         <div id="register" class="animate form registration_form">
             <section class="login_content">
-                <form>
+                <form class="form-horizontal form-label-left" th:action="@{/patients/add}"
+                      th:object="${patient}" method="post" data-parsley-validate>
+
                     <h1>Create Account</h1>
-                    <div>
-                        <input type="text" class="form-control" placeholder="Username" required=""/>
+
+                    <!-- First Name -->
+                    <div class="item form-group">
+                        <input id="firstName" class="form-control" data-parsley-trigger="change"
+                               data-parsley-minlength="2" data-parsley-maxlength="60"
+                               data-parsley-minlength-message="You need to enter at least 2 caracters for the first name"
+                               name="firstName" placeholder="First Name" required="required"
+                               type="text" th:field="*{firstName}">
                     </div>
-                    <div>
-                        <input type="email" class="form-control" placeholder="Email" required=""/>
+
+                    <!-- Last Name -->
+                    <div class="item form-group">
+                        <input id="lastName" class="form-control" data-parsley-trigger="change"
+                               data-parsley-minlength="2" data-parsley-maxlength="60"
+                               data-parsley-minlength-message="You need to enter at least 2 caracters for the last name"
+                               name="lastName" placeholder="Last Name" required="required"
+                               type="text" th:field="*{lastName}">
                     </div>
-                    <div>
-                        <input type="password" class="form-control" placeholder="Password" required=""/>
+
+                    <!-- Email -->
+                    <div class="item form-group">
+                        <input type="email" id="email" data-parsley-trigger="change" name="email"
+                               required="required" placeholder="Email" class="form-control" th:field="*{email}">
                     </div>
-                    <div>
-                        <a class="btn btn-default submit" href="index.html">Submit</a>
+
+                    <!-- ID Number -->
+                    <div class="item form-group">
+                        <input type="number" id="id_num" name="id_num" required="required"
+                               data-parsley-trigger="change"
+                               data-parsley-minlength="16" data-parsley-maxlength="16" placeholder="ID Number"
+                               class="form-control" th:field="*{idNumber}">
+                    </div>
+
+                    <!-- Address -->
+                    <div class="item form-group">
+                        <input type="text" id="address" name="address" required="required"
+                               data-parsley-trigger="change"
+                               data-parsley-minlength="2" data-parsley-maxlength="60"
+                               data-parsley-minlength-message="You need to enter at least 2 caracters for the street name"
+                               placeholder="Address" class="form-control" th:field="*{address}">
+                    </div>
+
+                    <!-- Post Code -->
+                    <div class="item form-group">
+                        <input type="text" id="postal_code" name="postal_code" required="required"
+                               data-parsley-trigger="change"
+                               data-parsley-minlength="5" data-parsley-maxlength="5"
+                               data-parsley-minlength-message="You need to enter a 5 digits postal code"
+                               placeholder="Postal Code" class="form-control" th:field="*{postalCode}">
+                    </div>
+
+                    <!-- City -->
+                    <div class="item form-group">
+                        <input type="text" id="city" name="city" required="required"
+                               data-parsley-trigger="change"
+                               data-parsley-minlength="2" data-parsley-maxlength="60"
+                               data-parsley-minlength-message="You need to enter at least 2 caracters for the city name"
+                               class="form-control" placeholder="City" th:field="*{city}">
+                    </div>
+
+                    <!-- Province -->
+                    <div class="item form-group">
+                        <input type="text" id="province" name="province" required="required"
+                               data-parsley-trigger="change"
+                               data-parsley-minlength="2" data-parsley-maxlength="60"
+                               data-parsley-minlength-message="You need to enter at least 2 caracters for the province name"
+                               class="form-control" placeholder="Province" th:field="*{province}">
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="item form-group">
+                        <label class="label-align">Gender</label>
+                        <div class="col">
+                            <input type="radio" class="flat" name="gender" id="male" value="male"
+                                   checked="" required th:field="*{gender}"/>
+                            Male
+                            <input type="radio" class="flat" name="gender" id="female" value="female"
+                                   th:field="*{gender}"/>
+                            Female
+                            <input type="radio" class="flat" name="gender" id="unspecified"
+                                   value="unspecified" th:field="*{gender}"/>
+                            Unspecified
+                        </div>
+                    </div>
+
+                    <!-- DOB -->
+                    <div class="item form-group">
+                        <label class="label-align">Date Of Birth</label>
+                        <div class="col">
+                            <input id="datepicker" class="form-control" data-date-format="mm-dd-yyyy"
+                                   type="date" th:field="*{dob}"/>
+                        </div>
+                    </div>
+
+                    <!-- Phone 1 -->
+                    <div class="item form-group">
+                        <input type="tel" id="telephone" name="phone" required="required"
+                               data-parsley-trigger="change"
+                               data-parsley-minlength="8" data-parsley-maxlength="20"
+                               data-parsley-minlength-message="You need to enter at least 8 digits of your telephone number"
+                               placeholder="Phone 1" class="form-control" th:field="*{phone1}">
+                    </div>
+
+                    <!-- Phone 2 -->
+                    <div class="item form-group">
+                        <input type="tel" id="telephone2" name="phone" class="form-control" placeholder="Phone 2"
+                               th:field="*{phone2}">
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 offset-md-3">
+                            <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        </div>
                     </div>
 
                     <div class="clearfix"></div>
