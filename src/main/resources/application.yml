@@ -6,16 +6,20 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
+    driver-class-name: org.postgresql.Driver
     #local
-    url: jdbc:postgresql://localhost:5432/dbsmartclinic
-    username: postgres
-    password: root
+    #url: jdbc:postgresql://localhost:5432/dbsmartclinic
+    #username: postgres
+    #password: root
 
     #dynamic
-    #url: ${JDBC_DATABASE_URL:}
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
 
     hikari:
       connection-timeout: 30000
       maximum-pool-size: 10
 
-    driver-class-name: org.postgresql.Driver
+server:
+  port: 8080

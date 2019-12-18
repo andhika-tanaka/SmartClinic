@@ -1,1 +1,1 @@
-web: java -jar target/SmartClinic-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT $JAR_OPTS
+web:java -Dserver.port=$PORT -jar target/SmartClinic-0.0.1-SNAPSHOT.jar
