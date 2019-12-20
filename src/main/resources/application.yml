@@ -8,18 +8,18 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     #local
-    #url: jdbc:postgresql://localhost:5432/dbsmartclinic
-    #username: postgres
-    #password: root
+    url: jdbc:postgresql://localhost:5432/dbsmartclinic
+    username: postgres
+    password: postgres
 
     #dynamic
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+    #url: ${JDBC_DATABASE_URL}
+    #username: ${JDBC_DATABASE_USERNAME}
+    #password: ${JDBC_DATABASE_PASSWORD}
 
     hikari:
       connection-timeout: 30000
       maximum-pool-size: 10
 
-server:
-  port: ${PORT:8080}
+#server:
+  #port: ${PORT:8080}
