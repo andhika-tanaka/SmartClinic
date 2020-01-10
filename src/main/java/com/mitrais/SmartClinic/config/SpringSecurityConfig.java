@@ -42,7 +42,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 inMemoryAuthentication()
                 .withUser("user").password(bCryptPasswordEncoder.encode("user")).roles("USER")
                 .and()
-                .withUser("admin").password(bCryptPasswordEncoder.encode("admin")).roles("USER", "ADMIN");
+                .withUser("admin").password(bCryptPasswordEncoder.encode("admin")).roles("ADMIN");
     }
 
     // roles admin allow to access /admin/**
@@ -53,17 +53,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/users/**","/home","/system", "/about","/build/**","/css/**","/images/**","/js/**","/vendors/**","/fragments/**").permitAll()
-                .antMatchers("/index/**").hasAnyRole("ADMIN")
-                .antMatchers("/index/**").hasAnyRole("PEGAWAI")
+                .antMatchers("/","/assets/**","/index","/login/**","/system", "/about","/build/**","/css/**","/images/**","/js/**","/vendors/**","/fragments/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/home")
                 .permitAll()
                 .and()
                 .logout()
+                .logoutSuccessUrl("/")
                 .permitAll()
                 .and()
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler);

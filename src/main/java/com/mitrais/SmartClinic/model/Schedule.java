@@ -42,7 +42,7 @@ public class Schedule {
     private Integer fee;
 
     @ManyToOne
-    private ClinicUser users;
+    private ClinicUser clinicUsers;
 
     @ManyToOne
     private Clinic clinics;

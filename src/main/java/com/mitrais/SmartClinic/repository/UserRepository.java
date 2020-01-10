@@ -16,6 +16,6 @@ public interface UserRepository extends JpaRepository<ClinicUser, Long> {
     @Query("SELECT u FROM ClinicUser u WHERE u.role = 3")
     List<ClinicUser> findPatients();
 
-    @Query("SELECT u FROM ClinicUser u WHERE u.role = 3")
+    @Query("SELECT u FROM ClinicUser u WHERE u.role = 2")
     List<ClinicUser> findDoctors();
 }

@@ -12,10 +12,11 @@ public interface RegistrationRepository extends JpaRepository<Registration, Long
 
     Registration findTopByOrderByIdDesc();
 
-    @Query("SELECT MAX(r.number) FROM Registration r JOIN r.doctors d " +
+    Registration findTopByCheckupDateAndDoctors_IdOrderByNumberDesc(String checkupDate, Long doctor);
+    /**@Query("SELECT COALESCE( MAX(r.number), 0) FROM Registration r JOIN r.doctors d " +
             "WHERE r.checkupDate = ?1 " +
             "AND d.id = ?2 " +
             "ORDER BY r.number " +
             "DESC")
-    Integer last_number(String date, Long doctor);
+    Integer last_number(String date, Long doctor);**/
 }

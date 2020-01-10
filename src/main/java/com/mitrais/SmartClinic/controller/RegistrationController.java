@@ -59,11 +59,11 @@ public class RegistrationController {
         }
         Integer number = 0;
 
-        Integer check = registrationRepository.last_number(registration.getCheckupDate(), registration.getDoctors().getId());
+        Registration check = registrationRepository.findTopByCheckupDateAndDoctors_IdOrderByNumberDesc(registration.getCheckupDate(), registration.getDoctors().getId());
         if (check == null) {
             number = 1;
         } else {
-            number = check + 1;
+            number = check.getNumber() + 1;
         }
 
         registration.setNumber(number);

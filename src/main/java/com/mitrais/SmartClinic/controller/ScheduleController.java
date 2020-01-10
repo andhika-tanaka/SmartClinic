@@ -78,6 +78,7 @@ public class ScheduleController {
             schedule.setId(id);
             return "redirect:/schedules";
         }
+        System.out.println(schedule);
         scheduleRepository.save(schedule);
         return "redirect:/schedules";
     }

@@ -1,791 +1,160 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../static/images/cross.ico" th:href="@{/images/cross.ico}" type="image/ico"/>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Smart Clinic</title>
-
-    <div th:replace="fragments/header :: header-css"></div>
-
-    <!-- bootstrap-progressbar -->
-    <link href="../static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" th:href="@{/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css}">
-    <!-- JQVMap -->
-    <link href="../static/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" th:href="@{/vendors/jqvmap/dist/jqvmap.min.css}"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="../static/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" th:href="@{/vendors/bootstrap-daterangepicker/daterangepicker.css}">
-
+    <link rel="stylesheet" href="../static/assets/bootstrap.min.css" th:href="@{/assets/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="../static/assets/styles.min.css" th:href="@{/assets/styles.min.css}">
 </head>
 
-<body class="nav-md">
-<div class="container body">
-    <div class="main_container">
-
-        <div th:replace="fragments/navbar :: navbar"></div>
-
-        <!-- top navigation -->
-        <div th:replace="fragments/topnav :: topnav"></div>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-            <!-- top tiles -->
-            <div class="row" style="display: inline-block;">
-                <div class="tile_count">
-                    <div class="col-md-2 col-sm-4  tile_stats_count">
-                        <span class="count_top"><i class="fa fa-clinicUser"></i> Total Users</span>
-                        <div class="count">2500</div>
-                        <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-                    </div>
-                    <div class="col-md-2 col-sm-4  tile_stats_count">
-                        <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-                        <div class="count">123.50</div>
-                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-                    </div>
-                    <div class="col-md-2 col-sm-4  tile_stats_count">
-                        <span class="count_top"><i class="fa fa-clinicUser"></i> Total Males</span>
-                        <div class="count green">2,500</div>
-                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-                    </div>
-                    <div class="col-md-2 col-sm-4  tile_stats_count">
-                        <span class="count_top"><i class="fa fa-clinicUser"></i> Total Females</span>
-                        <div class="count">4,567</div>
-                        <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-                    </div>
-                    <div class="col-md-2 col-sm-4  tile_stats_count">
-                        <span class="count_top"><i class="fa fa-clinicUser"></i> Total Collections</span>
-                        <div class="count">2,315</div>
-                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-                    </div>
-                    <div class="col-md-2 col-sm-4  tile_stats_count">
-                        <span class="count_top"><i class="fa fa-clinicUser"></i> Total Connections</span>
-                        <div class="count">7,325</div>
-                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-                    </div>
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="#">Smart Clinic</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/home}">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="page landing-page">
+    <section class="clean-block clean-hero"
+             style="background-image:url('/assets/images/bb.jpg');color:rgba(9, 162, 255, 0.85);">
+        <div class="text">
+            <h2>Welcome to E-Clinic</h2>
+            <p>Your Health Care Center</p>
+        </div>
+    </section>
+    <section class="clean-block features mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5 feature-box"><i class="material-icons icon">verified_user</i>
+                    <h4>Qualitfied Doctors</h4>
+                    <p><br>a&nbsp;professional&nbsp;who practises&nbsp;medicine, which is concerned with promoting,
+                        maintaining, or restoring&nbsp;health&nbsp;through the&nbsp;study,&nbsp;diagnosis,&nbsp;prognosis&nbsp;and&nbsp;<br>treatment&nbsp;of&nbsp;disease,&nbsp;injury,
+                        and other physical and mental impairments.&nbsp;<br><br></p>
                 </div>
-            </div>
-            <!-- /top tiles -->
-
-            <div class="row">
-                <div class="col-md-12 col-sm-12 ">
-                    <div class="dashboard_graph">
-
-                        <div class="row x_title">
-                            <div class="col-md-6">
-                                <h3>Network Activities <small>Graph title sub-title</small></h3>
-                            </div>
-                            <div class="col-md-6">
-                                <div id="reportrange" class="pull-right"
-                                     style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                    <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-9 col-sm-9 ">
-                            <div id="chart_plot_01" class="demo-placeholder"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3  bg-white">
-                            <div class="x_title">
-                                <h2>Top Campaign Performance</h2>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="col-md-12 col-sm-12 ">
-                                <div>
-                                    <p>Facebook Campaign</p>
-                                    <div class="">
-                                        <div class="progress progress_sm" style="width: 76%;">
-                                            <div class="progress-bar bg-green" role="progressbar"
-                                                 data-transitiongoal="80"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>Twitter Campaign</p>
-                                    <div class="">
-                                        <div class="progress progress_sm" style="width: 76%;">
-                                            <div class="progress-bar bg-green" role="progressbar"
-                                                 data-transitiongoal="60"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 ">
-                                <div>
-                                    <p>Conventional Media</p>
-                                    <div class="">
-                                        <div class="progress progress_sm" style="width: 76%;">
-                                            <div class="progress-bar bg-green" role="progressbar"
-                                                 data-transitiongoal="40"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>Bill boards</p>
-                                    <div class="">
-                                        <div class="progress progress_sm" style="width: 76%;">
-                                            <div class="progress-bar bg-green" role="progressbar"
-                                                 data-transitiongoal="50"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="clearfix"></div>
-                    </div>
+                <div class="col-md-5 feature-box"><i class="fas fa-stethoscope icon"></i>
+                    <h4>Outdoor Checkup</h4>
+                    <p><br>A&nbsp;medical test&nbsp;is a medical procedure performed to detect, diagnose, or monitor
+                        diseases, disease processes, susceptibility, or to determine a course of treatment. The tests
+                        are classified by speciality field allowing
+                        to know in which ward of hospital or by which specialist doctor are usually these tests
+                        performed. This list is not exhaustive but might be useful as a guide.<br><br></p>
                 </div>
-
-            </div>
-            <br/>
-
-            <div class="row">
-
-
-                <div class="col-md-4 col-sm-4 ">
-                    <div class="x_panel tile fixed_height_320">
-                        <div class="x_title">
-                            <h2>App Versions</h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Settings 1</a>
-                                        <a class="dropdown-item" href="#">Settings 2</a>
-                                    </div>
-                                </li>
-                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <h4>App Usage across versions</h4>
-                            <div class="widget_summary">
-                                <div class="w_left w_25">
-                                    <span>0.1.5.2</span>
-                                </div>
-                                <div class="w_center w_55">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                             aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
-                                            <span class="sr-only">60% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w_right w_20">
-                                    <span>123k</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="widget_summary">
-                                <div class="w_left w_25">
-                                    <span>0.1.5.3</span>
-                                </div>
-                                <div class="w_center w_55">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                             aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                                            <span class="sr-only">60% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w_right w_20">
-                                    <span>53k</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="widget_summary">
-                                <div class="w_left w_25">
-                                    <span>0.1.5.4</span>
-                                </div>
-                                <div class="w_center w_55">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                             aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-                                            <span class="sr-only">60% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w_right w_20">
-                                    <span>23k</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="widget_summary">
-                                <div class="w_left w_25">
-                                    <span>0.1.5.5</span>
-                                </div>
-                                <div class="w_center w_55">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                             aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
-                                            <span class="sr-only">60% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w_right w_20">
-                                    <span>3k</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="widget_summary">
-                                <div class="w_left w_25">
-                                    <span>0.1.5.6</span>
-                                </div>
-                                <div class="w_center w_55">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                             aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                                            <span class="sr-only">60% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w_right w_20">
-                                    <span>1k</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="col-md-5 feature-box"><i class="material-icons icon">local_hospital</i>
+                    <h4>Emergency Care</h4>
+                    <p>a medical treatment facility specializing in&nbsp;emergency medicine, the&nbsp;acute&nbsp;care of
+                        patients who present without prior appointment; either by their own means or by that of an&nbsp;ambulance.<br><br>
+                    </p>
                 </div>
-
-                <div class="col-md-4 col-sm-4 ">
-                    <div class="x_panel tile fixed_height_320 overflow_hidden">
-                        <div class="x_title">
-                            <h2>Device Usage</h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Settings 1</a>
-                                        <a class="dropdown-item" href="#">Settings 2</a>
-                                    </div>
-                                </li>
-                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <table class="" style="width:100%">
-                                <tr>
-                                    <th style="width:37%;">
-                                        <p>Top 5</p>
-                                    </th>
-                                    <th>
-                                        <div class="col-lg-7 col-md-7 col-sm-7 ">
-                                            <p class="">Device</p>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5 ">
-                                            <p class="">Progress</p>
-                                        </div>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <canvas class="canvasDoughnut" height="140" width="140"
-                                                style="margin: 15px 10px 10px 0"></canvas>
-                                    </td>
-                                    <td>
-                                        <table class="tile_info">
-                                            <tr>
-                                                <td>
-                                                    <p><i class="fa fa-square blue"></i>IOS </p>
-                                                </td>
-                                                <td>30%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p><i class="fa fa-square green"></i>Android </p>
-                                                </td>
-                                                <td>10%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p><i class="fa fa-square purple"></i>Blackberry </p>
-                                                </td>
-                                                <td>20%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p><i class="fa fa-square aero"></i>Symbian </p>
-                                                </td>
-                                                <td>15%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p><i class="fa fa-square red"></i>Others </p>
-                                                </td>
-                                                <td>30%</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-4 col-sm-4 ">
-                    <div class="x_panel tile fixed_height_320">
-                        <div class="x_title">
-                            <h2>Quick Settings</h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Settings 1</a>
-                                        <a class="dropdown-item" href="#">Settings 2</a>
-                                    </div>
-                                </li>
-                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <div class="dashboard-widget-content">
-                                <ul class="quick-list">
-                                    <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
-                                    </li>
-                                    <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
-                                    </li>
-                                    <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a></li>
-                                    <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                                    </li>
-                                    <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a></li>
-                                    <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                                    </li>
-                                    <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
-                                    </li>
-                                </ul>
-
-                                <div class="sidebar-widget">
-                                    <h4>Profile Completion</h4>
-                                    <canvas width="150" height="80" id="chart_gauge_01" class=""
-                                            style="width: 160px; height: 100px;"></canvas>
-                                    <div class="goal-wrapper">
-                                        <span id="gauge-text" class="gauge-value pull-left">0</span>
-                                        <span class="gauge-value pull-left">%</span>
-                                        <span id="goal-text" class="goal-value pull-right">100%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-4 col-sm-4 ">
-                    <div class="x_panel">
-                        <div class="x_title">
-                            <h2>Recent Activities <small>Sessions</small></h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Settings 1</a>
-                                        <a class="dropdown-item" href="#">Settings 2</a>
-                                    </div>
-                                </li>
-                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <div class="dashboard-widget-content">
-
-                                <ul class="list-unstyled timeline widget">
-                                    <li>
-                                        <div class="block">
-                                            <div class="block_content">
-                                                <h2 class="title">
-                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                                </h2>
-                                                <div class="byline">
-                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
-                                                </div>
-                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie
-                                                    makers. They were where you met the producers that could fund your
-                                                    project, and if the buyers liked your flick, they’d pay to
-                                                    Fast-forward and… <a>Read&nbsp;More</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="block">
-                                            <div class="block_content">
-                                                <h2 class="title">
-                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                                </h2>
-                                                <div class="byline">
-                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
-                                                </div>
-                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie
-                                                    makers. They were where you met the producers that could fund your
-                                                    project, and if the buyers liked your flick, they’d pay to
-                                                    Fast-forward and… <a>Read&nbsp;More</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="block">
-                                            <div class="block_content">
-                                                <h2 class="title">
-                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                                </h2>
-                                                <div class="byline">
-                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
-                                                </div>
-                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie
-                                                    makers. They were where you met the producers that could fund your
-                                                    project, and if the buyers liked your flick, they’d pay to
-                                                    Fast-forward and… <a>Read&nbsp;More</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="block">
-                                            <div class="block_content">
-                                                <h2 class="title">
-                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                                </h2>
-                                                <div class="byline">
-                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
-                                                </div>
-                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie
-                                                    makers. They were where you met the producers that could fund your
-                                                    project, and if the buyers liked your flick, they’d pay to
-                                                    Fast-forward and… <a>Read&nbsp;More</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-8 col-sm-8 ">
-
-
-                    <div class="row">
-
-                        <div class="col-md-12 col-sm-12 ">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Visitors location <small>geo-presentation</small></h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Settings 1</a>
-                                                <a class="dropdown-item" href="#">Settings 2</a>
-                                            </div>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <div class="dashboard-widget-content">
-                                        <div class="col-md-4 hidden-small">
-                                            <h2 class="line_30">125.7k Views from 60 countries</h2>
-
-                                            <table class="countries_list">
-                                                <tbody>
-                                                <tr>
-                                                    <td>United States</td>
-                                                    <td class="fs15 fw700 text-right">33%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>France</td>
-                                                    <td class="fs15 fw700 text-right">27%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Germany</td>
-                                                    <td class="fs15 fw700 text-right">16%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Spain</td>
-                                                    <td class="fs15 fw700 text-right">11%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Britain</td>
-                                                    <td class="fs15 fw700 text-right">10%</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div id="world-map-gdp" class="col-md-8 col-sm-12 " style="height:230px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-
-
-                        <!-- Start to do list -->
-                        <div class="col-md-6 col-sm-6 ">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>To Do List <small>Sample tasks</small></h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Settings 1</a>
-                                                <a class="dropdown-item" href="#">Settings 2</a>
-                                            </div>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-
-                                    <div class="">
-                                        <ul class="to_do">
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Schedule meeting with new
-                                                    client </p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Create email address for new
-                                                    intern</p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Have IT fix the network printer
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Copy backups to offsite
-                                                    location</p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Food truck fixie locavors
-                                                    mcsweeney</p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Food truck fixie locavors
-                                                    mcsweeney</p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Create email address for new
-                                                    intern</p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Have IT fix the network printer
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    <input type="checkbox" class="flat"> Copy backups to offsite
-                                                    location</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End to do list -->
-
-                        <!-- start of weather widget -->
-                        <div class="col-md-6 col-sm-6 ">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Daily active clinicUsers <small>Sessions</small></h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Settings 1</a>
-                                                <a class="dropdown-item" href="#">Settings 2</a>
-                                            </div>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="temperature"><b>Monday</b>, 07:30 AM
-                                                <span>F</span>
-                                                <span><b>C</b></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="weather-icon">
-                                                <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="weather-text">
-                                                <h2>Texas <br><i>Partly Cloudy Day</i></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="weather-text pull-right">
-                                            <h3 class="degrees">23</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                    <div class="row weather-days">
-                                        <div class="col-sm-2">
-                                            <div class="daily-weather">
-                                                <h2 class="day">Mon</h2>
-                                                <h3 class="degrees">25</h3>
-                                                <canvas id="clear-day" width="32" height="32"></canvas>
-                                                <h5>15 <i>km/h</i></h5>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="daily-weather">
-                                                <h2 class="day">Tue</h2>
-                                                <h3 class="degrees">25</h3>
-                                                <canvas height="32" width="32" id="rain"></canvas>
-                                                <h5>12 <i>km/h</i></h5>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="daily-weather">
-                                                <h2 class="day">Wed</h2>
-                                                <h3 class="degrees">27</h3>
-                                                <canvas height="32" width="32" id="snow"></canvas>
-                                                <h5>14 <i>km/h</i></h5>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="daily-weather">
-                                                <h2 class="day">Thu</h2>
-                                                <h3 class="degrees">28</h3>
-                                                <canvas height="32" width="32" id="sleet"></canvas>
-                                                <h5>15 <i>km/h</i></h5>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="daily-weather">
-                                                <h2 class="day">Fri</h2>
-                                                <h3 class="degrees">28</h3>
-                                                <canvas height="32" width="32" id="wind"></canvas>
-                                                <h5>11 <i>km/h</i></h5>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="daily-weather">
-                                                <h2 class="day">Sat</h2>
-                                                <h3 class="degrees">26</h3>
-                                                <canvas height="32" width="32" id="cloudy"></canvas>
-                                                <h5>10 <i>km/h</i></h5>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- end of weather widget -->
-                    </div>
+                <div class="col-md-5 feature-box"><i class="fa fa-history icon"></i>
+                    <h4>24 Hours Service</h4>
+                    <p>a patient who is hospitalized for less than 24 hours. Even if the patient will not be formally
+                        admitted with a note as an outpatient, they are still registered,&nbsp;<br><br></p>
                 </div>
             </div>
         </div>
-        <!-- /page content -->
+    </section>
+    <section>
+        <!--Konten LIFF v2-->
 
-        <!-- footer content -->
-        <div th:replace="fragments/footer :: footer"></div>
-        <!-- /footer content -->
+        <div id="liffAppContent">
+            <!-- ACTION BUTTONS -->
+            <div class="buttonGroup">
+                <div class="buttonRow">
+                    <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button>
+                    <button id="closeWindowButton" class="btn btn-danger btn-small">Close LIFF App</button>
+                    <button id="sendMessageButton" class="btn btn-warning btn-small">Send Message</button>
+                </div>
+
+            </div>
+
+            <!-- LIFF DATA -->
+            <div id="liffData">
+                <h3 id="liffDataHeader" class="textLeft">Informasi:</h3>
+                <table>
+                    <tr>
+                        <th>isInClient :</th>
+                        <td id="isInClient" class="textLeft"></td>
+                    </tr>
+                    <tr>
+                        <th>isLoggedIn :</th>
+                        <td id="isLoggedIn" class="textLeft"></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- LOGIN LOGOUT BUTTONS -->
+            <div class="buttonGroup">
+                <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
+                <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
+            </div>
+            <div id="statusMessage">
+                <div id="isInClientMessage"></div>
+                <div id="apiReferenceMessage">
+                    <p>Available LIFF methods vary depending on the browser you use to open the LIFF app.</p>
+                    <p>Please refer to the <a
+                            href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">API reference
+                        page</a> for more information.</p>
+                </div>
+            </div>
+        </div>
+        <!-- LIFF ID ERROR -->
+        <div id="liffIdErrorMessage" class="hidden">
+            <p>You have not assigned any value for LIFF ID.</p>
+            <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your
+                Heroku account follwing the below steps: </p>
+            <code id="code-block">
+                <ol>
+                    <li>Go to `Dashboard` in your Heroku account.</li>
+                    <li>Click on the app you just created.</li>
+                    <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
+                    <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
+                    <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
+                </ol>
+            </code>
+            <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
+            <p>For more information about how to add your LIFF ID, see <a
+                    href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF
+                app</a>.</p>
+        </div>
+        <!-- LIFF INIT ERROR -->
+        <div id="liffInitErrorMessage" class="hidden">
+            <p>Something went wrong with LIFF initialization.</p>
+            <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error
+                occurs in the process of <code>liff.init()</code>.
+        </div>
+        <!-- NODE.JS LIFF ID ERROR -->
+        <div id="nodeLiffIdErrorMessage" class="hidden">
+            <p>Unable to receive the LIFF ID as an environment variable.</p>
+        </div>
+    </section>
+</main>
+<footer class="page-footer dark">
+    <div class="footer-copyright">
+        <p><i>© 2019 Mitrais Internship</i></p>
     </div>
-</div>
-
-<!-- script -->
-<div th:replace="fragments/footer :: footer-script"></div>
-
-<!-- Chart.js -->
-<script src="../static/vendors/Chart.js/dist/Chart.min.js" th:src="@{/vendors/Chart.js/dist/Chart.min.js}" ></script>
-<!-- gauge.js -->
-<script src="../static/vendors/gauge.js/dist/gauge.min.js" th:src="@{/vendors/gauge.js/dist/gauge.min.js}"></script>
-<!-- Skycons -->
-<script src="../static/vendors/skycons/skycons.js" th:src="@{/vendors/skycons/skycons.js}"></script>
-<!-- Flot -->
-<script src="../static/vendors/Flot/jquery.flot.js" th:src="@{/vendors/Flot/jquery.flot.js}"></script>
-<script src="../static/vendors/Flot/jquery.flot.pie.js" th:src="@{/vendors/Flot/jquery.flot.pie.js}"></script>
-<script src="../static/vendors/Flot/jquery.flot.time.js" th:src="@{/vendors/Flot/jquery.flot.time.js}"></script>
-<script src="../static/vendors/Flot/jquery.flot.stack.js" th:src="@{/vendors/Flot/jquery.flot.stack.js}"></script>
-<script src="../static/vendors/Flot/jquery.flot.resize.js" th:src="@{/vendors/Flot/jquery.flot.resize.js}"></script>
-<!-- Flot plugins -->
-<script src="../static/vendors/flot.orderbars/js/jquery.flot.orderBars.js" th:src="@{/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
-<script src="../static/vendors/flot-spline/js/jquery.flot.spline.min.js" th:src="@{/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
-<script src="../static/vendors/flot.curvedlines/curvedLines.js" th:src="@{/vendors/flot.curvedlines/curvedLines.js}"></script>
-<!-- DateJS -->
-<script src="../static/vendors/DateJS/build/date.js" th:src="@{/vendors/DateJS/build/date.js}"></script>
-<!-- JQVMap -->
-<script src="../static/vendors/jqvmap/dist/jquery.vmap.js" th:src="@{/vendors/jqvmap/dist/jquery.vmap.js}"></script>
-<script src="../static/vendors/jqvmap/dist/maps/jquery.vmap.world.js" th:src="@{/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
-<script src="../static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js" th:src="@{/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
-<!-- bootstrap-daterangepicker -->
-<script src="../static/vendors/moment/min/moment.min.js" th:src="@{/vendors/moment/min/moment.min.js}"></script>
-<script src="../static/vendors/bootstrap-daterangepicker/daterangepicker.js" th:src="@{/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
-
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script src="/assets/js/script.min.js?h=91b2b9fd6a86fd92a6ad1efe2b2bd17f"></script>
+<!--line liff-->
+<script th:src="@{/js/liff-starter.js}"></script>
+<script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 </body>
+
 </html>

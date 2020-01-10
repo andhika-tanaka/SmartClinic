@@ -78,7 +78,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6" id="clinicUser">
                                             <select name="clinicUsers" class="form-control">
-                                                <option th:each="s : ${clinicUsers}" th:value="${s.id}"
+                                                <option th:each="s : ${users}" th:value="${s.id}"
                                                         th:text="${s.firstName} + ' ' + ${s.lastName}" th:field="*{clinicUsers}"></option>
                                             </select>
                                         </div>
